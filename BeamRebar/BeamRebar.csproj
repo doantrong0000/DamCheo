@@ -54,6 +54,8 @@
 
     <ItemGroup>
         <!-- Revit References -->
+        <PackageReference Include="BimSpeedLicense" Version="$(RevitVersion).*" />
+        <PackageReference Include="BimSpeedUtils" Version="$(RevitVersion).*" />
         <PackageReference Include="Nice3point.Revit.Build.Tasks" Version="3.0.1"/>
         <PackageReference Include="Nice3point.Revit.Toolkit" Version="$(RevitVersion).*"/>
         <PackageReference Include="Nice3point.Revit.Extensions" Version="$(RevitVersion).*"/>

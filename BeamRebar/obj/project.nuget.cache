@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "dgSpecHash": "lAVvClSKZu8=",
+  "success": true,
+  "projectFilePath": "D:\\2_Code_Trong\\DamCheo\\BeamRebar\\BeamRebar.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hoang\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\jetbrains.annotations\\2024.3.0\\jetbrains.annotations.2024.3.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\nice3point.revit.api.revitapi\\2024.3.10\\nice3point.revit.api.revitapi.2024.3.10.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\nice3point.revit.api.revitapiui\\2024.3.10\\nice3point.revit.api.revitapiui.2024.3.10.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\nice3point.revit.build.tasks\\3.0.1\\nice3point.revit.build.tasks.3.0.1.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\nice3point.revit.extensions\\2024.2.1\\nice3point.revit.extensions.2024.2.1.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\nice3point.revit.toolkit\\2024.2.0\\nice3point.revit.toolkit.2024.2.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\system.buffers\\4.6.0\\system.buffers.4.6.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\system.memory\\4.6.0\\system.memory.4.6.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\system.numerics.vectors\\4.6.0\\system.numerics.vectors.4.6.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.1.0\\system.runtime.compilerservices.unsafe.6.1.0.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+  ],
+  "logs": []
+}

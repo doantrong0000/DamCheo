@@ -24,3 +24,4 @@ D:\2_Code_Trong\DamCheo\BeamRebar\obj\Debug R24\BeamRebar.csproj.CoreCompileInpu
 D:\2_Code_Trong\DamCheo\BeamRebar\obj\Debug R24\BeamRebar.csproj.Up2Date
 D:\2_Code_Trong\DamCheo\BeamRebar\obj\Debug R24\BeamRebar.dll
 D:\2_Code_Trong\DamCheo\BeamRebar\obj\Debug R24\BeamRebar.pdb
+D:\2_Code_Trong\DamCheo\BeamRebar\obj\Debug R24\BeamRebar.sourcelink.json

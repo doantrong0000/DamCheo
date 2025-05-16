@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BeamRebar")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug R24")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df5ceff034f42ea56cd9821f88b505b0392d4ae4")]
 [assembly: System.Reflection.AssemblyProductAttribute("BeamRebar")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BeamRebar")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

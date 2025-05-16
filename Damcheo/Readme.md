@@ -113,7 +113,7 @@ The project has available constants such as `REVIT2026`, `REVIT2026_OR_GREATER`,
 Create conditions, experiment to achieve the desired result.
 
 > For generating directives, a third-party package is used.
-> You can find more detailed documentation about it here: [Revit.Build.Tasks](https://github.com/Nice3point/Revit.Build.Tasks)
+> You can find more detailed AC.Documentumentation about it here: [Revit.Build.Tasks](https://github.com/Nice3point/Revit.Build.Tasks)
 
 To support the latest APIs in legacy Revit versions:
 

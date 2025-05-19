@@ -55,8 +55,7 @@ namespace BimSpeedStructureBeamDesign.Utils.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/utils/view/sheetfinderview.xam" +
-                    "l", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/utils/view/sheetfinderview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Utils\View\SheetFinderView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

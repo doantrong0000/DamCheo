@@ -87,8 +87,8 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.View.SubViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamrebar/view/subviews/stirru" +
-                    "pbarview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamrebar/view/subviews/stirrupbarview.xam" +
+                    "l", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\BeamRebar\View\SubViews\StirrupBarView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

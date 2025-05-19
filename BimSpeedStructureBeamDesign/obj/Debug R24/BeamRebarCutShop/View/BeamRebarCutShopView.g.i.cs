@@ -64,8 +64,8 @@ namespace BimSpeedStructureBeamDesign.BeamRebarCutShop.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamrebarcutshop/view/beamreba" +
-                    "rcutshopview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamrebarcutshop/view/beamrebarcutshopview" +
+                    ".xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\BeamRebarCutShop\View\BeamRebarCutShopView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

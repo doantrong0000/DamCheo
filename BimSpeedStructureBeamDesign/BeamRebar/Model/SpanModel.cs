@@ -32,8 +32,10 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
       public Line TopLine { get; set; }
       public Line BotLine { get; set; }
       public FamilyInstance Beam { get; set; }
-      public double TopElevation { get; set; }
-      public double BotElevation { get; set; }
+      public double TopElevationSP { get; set; }
+      public double BotElevationSP { get; set; }
+      public double TopElevationEP { get; set; }
+      public double BotElevationEP { get; set; }
       public double Height { get; set; }
       public double Length { get; set; }
       public double Width { get; set; }
@@ -119,15 +121,17 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
       public SpanModel(Line line, BeamGeometry beamGeometry)
       {
          BeamGeometry = beamGeometry;
-         TopElevation = beamGeometry.TopElevation;
-         BotElevation = beamGeometry.BotElevation;
+         TopElevationSP = line.SP().Z;
+         TopElevationEP = line.EP().Z;
+         BotElevationSP = line.SP().Z - beamGeometry.Height;
+         BotElevationEP = line.EP().Z - beamGeometry.Height;
 
          Beam = beamGeometry.Beam;
-         TopLeft = line.SP().EditZ(TopElevation);
-         TopRight = line.EP().EditZ(TopElevation);
+         TopLeft = line.SP();
+         TopRight = line.EP();
          TopLine = Line.CreateBound(TopLeft, TopRight);
-         BotLeft = TopLeft.EditZ(BotElevation);
-         BotRight = TopRight.EditZ(BotElevation);
+         BotLeft = TopLeft.EditZ(BotElevationSP);
+         BotRight = TopRight.EditZ(BotElevationEP);
          BotLine = Line.CreateBound(BotLeft, BotRight);
          Length = line.Length;
          Height = beamGeometry.Height;
@@ -209,13 +213,13 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
             BeamRebarRevitData.Instance.Grid.Children.Remove(sectionPath3);
             var line = BotLine;
 
-            var p25 = line.Evaluate(BeamRebarRevitData.Instance.BeamRebarSettingViewModel.BeamDrawingSettingViewModel.BeamDrawingSetting.BeamSectionSetting.ViTri1, true).EditZ(TopElevation);
-            var p50 = line.Evaluate(BeamRebarRevitData.Instance.BeamRebarSettingViewModel.BeamDrawingSettingViewModel.BeamDrawingSetting.BeamSectionSetting.ViTri2, true).EditZ(TopElevation);
-            var p75 = line.Evaluate(BeamRebarRevitData.Instance.BeamRebarSettingViewModel.BeamDrawingSettingViewModel.BeamDrawingSetting.BeamSectionSetting.ViTri3, true).EditZ(TopElevation);
+            var p25 = line.Evaluate(BeamRebarRevitData.Instance.BeamRebarSettingViewModel.BeamDrawingSettingViewModel.BeamDrawingSetting.BeamSectionSetting.ViTri1, true);
+            var p50 = line.Evaluate(BeamRebarRevitData.Instance.BeamRebarSettingViewModel.BeamDrawingSettingViewModel.BeamDrawingSetting.BeamSectionSetting.ViTri2, true);
+            var p75 = line.Evaluate(BeamRebarRevitData.Instance.BeamRebarSettingViewModel.BeamDrawingSettingViewModel.BeamDrawingSetting.BeamSectionSetting.ViTri3, true);
 
             var p25Top = p25.Add(XYZ.BasisZ * 80.MmToFoot()).ConvertToMainViewPoint();
 
-            var p25Bot = p25.EditZ(BotElevation).Add(XYZ.BasisZ * -80.MmToFoot()).ConvertToMainViewPoint();
+            var p25Bot = p25.Add(XYZ.BasisZ * -80.MmToFoot()).ConvertToMainViewPoint();
 
             BeamRebarRevitData.Instance.Grid.Children.Add(DrawText(p25Top.EditX(p25Top.X - 40.MmToFoot() * BeamRebarRevitData.XScale), (Index * 3 + 1).ToString()));
 
@@ -226,7 +230,7 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
 
             var p50Top = p50.Add(XYZ.BasisZ * 80.MmToFoot()).ConvertToMainViewPoint();
 
-            var p50Bot = p50.EditZ(BotElevation).Add(XYZ.BasisZ * -80.MmToFoot()).ConvertToMainViewPoint();
+            var p50Bot = p50.Add(XYZ.BasisZ * -80.MmToFoot()).ConvertToMainViewPoint();
 
             BeamRebarRevitData.Instance.Grid.Children.Add(DrawText(p50Top.EditX(p50Top.X - 40.MmToFoot() * BeamRebarRevitData.XScale), (Index * 3 + 2).ToString()));
 
@@ -237,7 +241,7 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
 
             var p75Top = p75.Add(XYZ.BasisZ * 80.MmToFoot()).ConvertToMainViewPoint();
 
-            var p75Bot = p75.EditZ(BotElevation).Add(XYZ.BasisZ * -80.MmToFoot()).ConvertToMainViewPoint();
+            var p75Bot = p75.Add(XYZ.BasisZ * -80.MmToFoot()).ConvertToMainViewPoint();
 
             BeamRebarRevitData.Instance.Grid.Children.Add(DrawText(p75Top.EditX(p75Top.X - 40.MmToFoot() * BeamRebarRevitData.XScale), (Index * 3 + 3).ToString()));
 
@@ -371,8 +375,6 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
             AddTop1 = AddTop1,
             AddTop2 = AddTop2,
             AddTop3 = AddTop3,
-
-
             MainBot1 = MainBot1,
             AddBot1 = AddBot1,
             AddBot2 = AddBot2,

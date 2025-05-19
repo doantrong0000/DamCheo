@@ -88,8 +88,8 @@ namespace BimSpeedStructureBeamDesign.BeamSectionGenerator.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamsectiongenerator/view/beam" +
-                    "sectiongeneratorview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamsectiongenerator/view/beamsectiongener" +
+                    "atorview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\BeamSectionGenerator\View\BeamSectionGeneratorView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -246,10 +246,8 @@ namespace BimSpeedStructureBeamDesign.BeamRebarCutShop.ViewModel
       /// <param name="rebars">Các rebars đã được group lại theo nhóm rebar number, vị trí và vị trí chẵn lẻ , chỉ cắt thép có chiều dài lớn hơn 11.7</param>
       /// <param name="cutZones"></param>
       void CutRebarsByLayer(List<CutRebarModel> rebars, List<CutZone> cutZones)
-      {
-
-
-         var cutPointsUsed = new List<XYZ>();
+      { 
+          var cutPointsUsed = new List<XYZ>();
 
          var cutZonesCanUse = cutZones.OrderBy(x => x.Start.DotProduct(BeamModel.Direction)).ToList();
 

@@ -128,8 +128,7 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamrebar/view/beamrebarview2." +
-                    "xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamrebar/view/beamrebarview2.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\BeamRebar\View\BeamRebarView2.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

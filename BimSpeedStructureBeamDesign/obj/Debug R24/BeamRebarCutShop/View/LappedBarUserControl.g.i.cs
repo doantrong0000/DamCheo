@@ -54,8 +54,8 @@ namespace BimSpeedRebar.RebarTools.CutRebarAtPoint.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamrebarcutshop/view/lappedba" +
-                    "rusercontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamrebarcutshop/view/lappedbarusercontrol" +
+                    ".xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\BeamRebarCutShop\View\LappedBarUserControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

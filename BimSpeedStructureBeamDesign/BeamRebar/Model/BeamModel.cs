@@ -83,8 +83,8 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
                beamSupports.Add(eleGeo);
             }
             var solids = wallSupports.Concat(columnSupports).Concat(beamSupports).Concat(foundationsSupport).Select(x => x.Solid).Where(x => x != null && x.Volume > 0.001).ToList();
-            var lines = BeamRebarCommonService.TrimLinesBySolids(line, solids);
-            lines = BeamRebarCommonService.EditLinesByDirectionAndOrdering(lines, Direction);
+            var lines = BeamRebarCommonService.TrimLinesByDBSolids(line, solids);
+           // lines = BeamRebarCommonService.EditLinesByDirectionAndOrdering(lines, Direction);
 
             var supports = columnSupports.Concat(wallSupports).Concat(beamSupports).Concat(foundationsSupport)
                 .Where(x => x.Solid != null && x.Solid.Volume > 0.001).ToList();
@@ -138,8 +138,8 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
             if (lastSpan != null) Last = lastSpan.TopLine.EP();
          }
 
-         Origin = Origin.EditZ(ZTop);
-         Last = Last.EditZ(ZTop);
+         Origin = Origin;
+         Last = Last;
 
          var supportIndex = 0;
          for (int i = 0; i < SpanModels.Count; i++)

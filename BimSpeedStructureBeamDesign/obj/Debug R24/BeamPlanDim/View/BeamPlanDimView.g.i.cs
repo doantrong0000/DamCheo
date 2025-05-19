@@ -69,8 +69,7 @@ namespace BimSpeedStructureBeamDesign.BeamPlanDim.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamplandim/view/beamplandimvi" +
-                    "ew.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamplandim/view/beamplandimview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\BeamPlanDim\View\BeamPlanDimView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

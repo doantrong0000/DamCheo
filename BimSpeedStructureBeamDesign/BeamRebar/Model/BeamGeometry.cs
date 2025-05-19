@@ -78,7 +78,6 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
 
         }
 
-
         private void GetData()
         {
             Transform = Beam.GetTransform();
@@ -88,8 +87,8 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
                 var line = lc.Curve as Line;
                 if (line != null)
                 {
-                    var sp = line.SP().EditZ(TopElevation);
-                    var ep = line.EP().EditZ(TopElevation);
+                    var sp = line.SP();
+                    var ep = line.EP();
                     var line1 = Line.CreateBound(sp, ep);
                     var origin = Transform.Origin;
                     var normal = Transform.OfVector(XYZ.BasisY);
@@ -98,8 +97,7 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Model
                 }
             }
 
-
-            BeamLine = Line.CreateBound(BeamLine.SP().EditZ(TopElevation), BeamLine.EP().EditZ(TopElevation));
+            BeamLine = Line.CreateBound(BeamLine.SP(), BeamLine.EP());
             MidPoint = BeamLine.Midpoint();
             OriginalSolidTransformed = SolidUtils.CreateTransformed(GetOriginalGeometry(), Transform);
             var s = Beam.GetSolids();

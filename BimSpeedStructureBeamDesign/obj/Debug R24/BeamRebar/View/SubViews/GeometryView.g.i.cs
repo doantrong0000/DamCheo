@@ -55,8 +55,7 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.View.SubViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamrebar/view/subviews/geomet" +
-                    "ryview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamrebar/view/subviews/geometryview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\BeamRebar\View\SubViews\GeometryView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

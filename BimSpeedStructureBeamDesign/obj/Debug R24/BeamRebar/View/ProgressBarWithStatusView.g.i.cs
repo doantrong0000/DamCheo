@@ -88,8 +88,8 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamrebar/view/progressbarwith" +
-                    "statusview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamrebar/view/progressbarwithstatusview.x" +
+                    "aml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\BeamRebar\View\ProgressBarWithStatusView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

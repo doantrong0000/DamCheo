@@ -64,8 +64,8 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.View.SubViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamrebar/view/subviews/mainto" +
-                    "pbarview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamrebar/view/subviews/maintopbarview.xam" +
+                    "l", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\BeamRebar\View\SubViews\MainTopBarView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -4,6 +4,7 @@ using BimSpeedStructureBeamDesign.Beam;
 using BimSpeedStructureBeamDesign.BeamRebar.Model;
 using BimSpeedStructureBeamDesign.BeamRebar.Model.RebarModel;
 using BimSpeedUtils;
+using static Microsoft.IO.RecyclableMemoryStreamManager;
 
 namespace BimSpeedStructureBeamDesign.BeamRebar.Services
 {
@@ -82,11 +83,11 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Services
                 beam.GetParameterValueByNameAsDouble(BuiltInParameter.STRUCTURAL_BEAM_END0_ELEVATION);
             var endLevelOffset =
                 beam.GetParameterValueByNameAsDouble(BuiltInParameter.STRUCTURAL_BEAM_END1_ELEVATION);
-            if (startLevelOffset.IsEqual(endLevelOffset, 0.0001) == false)
-            {
-               errorMessage = Define.BeamsAreNotHorizontal;
-               return false;
-            }
+            //if (startLevelOffset.IsEqual(endLevelOffset, 0.0001) == false)
+            //{
+            //   errorMessage = Define.BeamsAreNotHorizontal;
+            //   return false;
+            //}
             levelIds.Add(level.Id.GetElementIdValue());
             levelIds = levelIds.Distinct().ToList();
          }
@@ -408,6 +409,40 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Services
          xArray1.Add(Symbol_Main);
          return xArray1;
       }
+
+      public static List<Line> TrimLinesByDBSolids(Line line, List<Solid> solids)
+      {
+          // truong hop dam nghieng
+          if (solids.Count == 0)
+          {
+              return new List<Line> { line };
+          }
+          var solid = solids[0];
+          if (solids.Count > 1)
+          {
+              var z = line.SP();
+              solid = SolidUtils.Clone(solid);
+              for (int i = 0; i < solids.Count; i++)
+              {
+                  var s = solids[i];
+                  try
+                  {
+                      var solidZ = SolidUtils.CreateTransformed(s,null);
+                      BooleanOperationsUtils.ExecuteBooleanOperationModifyingOriginalSolid(solid, solidZ, BooleanOperationsType.Union);
+                  }
+                  catch
+                  {
+                      //Ignore
+                      var b = 1;
+                  }
+              }
+          }
+          var curveIntersection = solid.IntersectWithCurve(line,
+              new SolidCurveIntersectionOptions { ResultType = SolidCurveIntersectionMode.CurveSegmentsOutside });
+          var list = curveIntersection.Where(x => x is Line).Cast<Line>().ToList();
+
+          return list;
+        }
 
       public static List<Line> TrimLinesBySolids(Line line, List<Solid> solids)
       {

@@ -88,8 +88,7 @@ namespace BimSpeedStructureBeamDesign.BeamDrawing.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamdrawing/view/beamdrawingvi" +
-                    "ew.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamdrawing/view/beamdrawingview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\BeamDrawing\View\BeamDrawingView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

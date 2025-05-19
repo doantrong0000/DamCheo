@@ -70,8 +70,7 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;V2024.0.0.0;component/beamrebar/view/barpositionview" +
-                    ".xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BimSpeedStructureBeamDesign;component/beamrebar/view/barpositionview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\BeamRebar\View\BarPositionView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

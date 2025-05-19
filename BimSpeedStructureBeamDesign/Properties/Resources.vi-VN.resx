@@ -1,0 +1,900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AUTOBEAM-SETTINGNAME" xml:space="preserve">
+    <value>Setting Name</value>
+  </data>
+  <data name="AUTOBEAM-SETTINGNAME1" xml:space="preserve">
+    <value>Setting Name</value>
+  </data>
+  <data name="AUTOBEAM_BREAKLINE" xml:space="preserve">
+    <value>Break Line Family:</value>
+  </data>
+  <data name="AUTOBEAM_BREAKLINE1" xml:space="preserve">
+    <value>Break Line Family:</value>
+  </data>
+  <data name="AUTOBEAM_DIMSTYLE" xml:space="preserve">
+    <value>Dimmension Style:</value>
+  </data>
+  <data name="AUTOBEAM_DIMSTYLE1" xml:space="preserve">
+    <value>Dimmension Style:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCE2DIM" xml:space="preserve">
+    <value>Distance 2 Dim:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCE2DIM1" xml:space="preserve">
+    <value>Distance 2 Dim:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCE2DIMSCALE" xml:space="preserve">
+    <value>Distance 2 dim (Scale 1:1)</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCE2DIMSCALE1" xml:space="preserve">
+    <value>Distance 2 dim (Scale 1:1)</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCEBREAKLINE-BEAM" xml:space="preserve">
+    <value>Distance BreakLine-&gt;Beam:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCEBREAKLINE-BEAM1" xml:space="preserve">
+    <value>Distance BreakLine-&gt;Beam:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCEDIMBEAM" xml:space="preserve">
+    <value>Distance Dim-&gt;Beam:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCEDIMBEAM1" xml:space="preserve">
+    <value>Distance Dim-&gt;Beam:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCEEAGE-BEAM" xml:space="preserve">
+    <value>Distance Edge-&gt;Beam:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCEEAGE-BEAM1" xml:space="preserve">
+    <value>Distance Edge-&gt;Beam:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCETAGBEAM" xml:space="preserve">
+    <value>Distance Tag-&gt;Beam:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCETAGBEAM1" xml:space="preserve">
+    <value>Distance Tag-&gt;Beam:</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCETAGHEAD-BEAM" xml:space="preserve">
+    <value>Distance Tag Head-&gt;Beam</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCETAGHEAD-BEAM1" xml:space="preserve">
+    <value>Distance Tag Head-&gt;Beam</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCETAGY" xml:space="preserve">
+    <value>Distance Tag Y(1:1):</value>
+  </data>
+  <data name="AUTOBEAM_DISTANCETAGY1" xml:space="preserve">
+    <value>Distance Tag Y(1:1):</value>
+  </data>
+  <data name="AUTOBEAM_SETTINGLIST" xml:space="preserve">
+    <value>Setting List</value>
+  </data>
+  <data name="AUTOBEAM_SETTINGLIST1" xml:space="preserve">
+    <value>Setting List</value>
+  </data>
+  <data name="AUTOBEAM_SHEETNAME" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="AUTOBEAM_SHEETNAME1" xml:space="preserve">
+    <value>Sheet Name</value>
+  </data>
+  <data name="AUTOBEAM_SHEETNUMBER" xml:space="preserve">
+    <value>Sheet Number</value>
+  </data>
+  <data name="AUTOBEAM_SHEETNUMBER1" xml:space="preserve">
+    <value>Sheet Number</value>
+  </data>
+  <data name="AUTOBEAM_SPOTELEVATION" xml:space="preserve">
+    <value>Spot Elevation:</value>
+  </data>
+  <data name="AUTOBEAM_SPOTELEVATION1" xml:space="preserve">
+    <value>Spot Elevation:</value>
+  </data>
+  <data name="AUTOBEAM_TAGGROUPBARLEFT" xml:space="preserve">
+    <value>Tag Group Bar Left:</value>
+  </data>
+  <data name="AUTOBEAM_TAGGROUPBARLEFT1" xml:space="preserve">
+    <value>Tag Group Bar Left:</value>
+  </data>
+  <data name="AUTOBEAM_TAGGROUPBARRIGHT" xml:space="preserve">
+    <value>Tag Group Bar Right:</value>
+  </data>
+  <data name="AUTOBEAM_TAGGROUPBARRIGHT1" xml:space="preserve">
+    <value>Tag Group Bar Right:</value>
+  </data>
+  <data name="AUTOBEAM_TAGSINGLEBARLEFT" xml:space="preserve">
+    <value>Tag Single Bar Left</value>
+  </data>
+  <data name="AUTOBEAM_TAGSINGLEBARLEFT1" xml:space="preserve">
+    <value>Tag Single Bar Left</value>
+  </data>
+  <data name="AUTOBEAM_TAGSINGLEBARRIGHT" xml:space="preserve">
+    <value>Tag Single Bar Right:</value>
+  </data>
+  <data name="AUTOBEAM_TAGSINGLEBARRIGHT1" xml:space="preserve">
+    <value>Tag Single Bar Right:</value>
+  </data>
+  <data name="AUTOBEAM_TAGSTIRRUPLEFT" xml:space="preserve">
+    <value>Tag Left Stirrup:</value>
+  </data>
+  <data name="AUTOBEAM_TAGSTIRRUPLEFT1" xml:space="preserve">
+    <value>Tag Left Stirrup:</value>
+  </data>
+  <data name="AUTOBEAM_TAGSTIRRUPRIGHT" xml:space="preserve">
+    <value>Tag Right Stirrup:</value>
+  </data>
+  <data name="AUTOBEAM_TAGSTIRRUPRIGHT1" xml:space="preserve">
+    <value>Tag Right Stirrup:</value>
+  </data>
+  <data name="AUTOBEAM_TITLEBLOCK" xml:space="preserve">
+    <value>Title Block</value>
+  </data>
+  <data name="AUTOBEAM_TITLEBLOCK1" xml:space="preserve">
+    <value>Title Block</value>
+  </data>
+  <data name="AUTOBEAM_VIEWTEMPLATE" xml:space="preserve">
+    <value>View Template:</value>
+  </data>
+  <data name="AUTOBEAM_VIEWTEMPLATE1" xml:space="preserve">
+    <value>View Template:</value>
+  </data>
+  <data name="BEAMREBARVIEW2_ADDBARTOP_ADDBARTOP" xml:space="preserve">
+    <value>Add. Bar Top</value>
+  </data>
+  <data name="BEAMREBARVIEW2_KIEUTHEPDAI" xml:space="preserve">
+    <value>Stirrups Type</value>
+  </data>
+  <data name="BEAMREBARVIEW2_THIETLAPTHEPDAI" xml:space="preserve">
+    <value>Stirrups set up</value>
+  </data>
+  <data name="BEAMREBARVIEW2_ThongSoCacThanhCotThep" xml:space="preserve">
+    <value>Rebar Infor</value>
+  </data>
+  <data name="BEAMREBAR_ALLBEAM" xml:space="preserve">
+    <value>All Beam</value>
+  </data>
+  <data name="BEAMREBAR_ALLBEAM1" xml:space="preserve">
+    <value>All Beam</value>
+  </data>
+  <data name="BEAMREBAR_BANVE" xml:space="preserve">
+    <value>Drawing</value>
+  </data>
+  <data name="BEAMREBAR_BANVE1" xml:space="preserve">
+    <value>Drawing</value>
+  </data>
+  <data name="BEAMREBAR_BANVE_MATCAT1" xml:space="preserve">
+    <value>Section 1:</value>
+  </data>
+  <data name="BEAMREBAR_BANVE_MATCAT11" xml:space="preserve">
+    <value>Section 1:</value>
+  </data>
+  <data name="BEAMREBAR_BANVE_MATCAT2" xml:space="preserve">
+    <value>Section 2:</value>
+  </data>
+  <data name="BEAMREBAR_BANVE_MATCAT21" xml:space="preserve">
+    <value>Section 2:</value>
+  </data>
+  <data name="BEAMREBAR_BANVE_MATCAT3" xml:space="preserve">
+    <value>Section 3:</value>
+  </data>
+  <data name="BEAMREBAR_BANVE_MATCAT31" xml:space="preserve">
+    <value>Section 3:</value>
+  </data>
+  <data name="BEAMREBAR_BANVE_VITRICHOPHEPCATTHEP" xml:space="preserve">
+    <value>Position Allows Cutting Rebar</value>
+  </data>
+  <data name="BEAMREBAR_BANVE_VITRICHOPHEPCATTHEP1" xml:space="preserve">
+    <value>Position Allows Cutting Rebar</value>
+  </data>
+  <data name="BEAMREBAR_BAVEDAM" xml:space="preserve">
+    <value>Beam Drawing</value>
+  </data>
+  <data name="BEAMREBAR_BAVEDAM1" xml:space="preserve">
+    <value>Beam Drawing</value>
+  </data>
+  <data name="BEAMREBAR_BEAM" xml:space="preserve">
+    <value>Beam</value>
+  </data>
+  <data name="BEAMREBAR_BEAM1" xml:space="preserve">
+    <value>Beam</value>
+  </data>
+  <data name="BEAMREBAR_BEAMSHOP" xml:space="preserve">
+    <value>Beam Shop</value>
+  </data>
+  <data name="BEAMREBAR_BEAMSHOP1" xml:space="preserve">
+    <value>Beam Shop</value>
+  </data>
+  <data name="BEAMREBAR_BEAMSHOP_VITRICATTAINHIPDAM" xml:space="preserve">
+    <value>Section Position in Span</value>
+  </data>
+  <data name="BEAMREBAR_BEAMSHOP_VITRICATTAINHIPDAM1" xml:space="preserve">
+    <value>Section Position in Span</value>
+  </data>
+  <data name="BEAMREBAR_BEAMSUPPORT" xml:space="preserve">
+    <value>Beam Support</value>
+  </data>
+  <data name="BEAMREBAR_BEAMSUPPORT1" xml:space="preserve">
+    <value>Beam Support</value>
+  </data>
+  <data name="BEAMREBAR_BOTBAR" xml:space="preserve">
+    <value>Bot Bar</value>
+  </data>
+  <data name="BEAMREBAR_BOTBAR1" xml:space="preserve">
+    <value>Bot Bar</value>
+  </data>
+  <data name="BEAMREBAR_BOTLAYER" xml:space="preserve">
+    <value>Bot Layer</value>
+  </data>
+  <data name="BEAMREBAR_BOTLAYER1" xml:space="preserve">
+    <value>Bot Layer</value>
+  </data>
+  <data name="BEAMREBAR_BOTRI" xml:space="preserve">
+    <value>Stirrup Arrangement:</value>
+  </data>
+  <data name="BEAMREBAR_BOTRIDAI" xml:space="preserve">
+    <value>Stirrup Distribution Type :</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO" xml:space="preserve">
+    <value>Add Setting</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_CDTOITHIEUDOANMOC" xml:space="preserve">
+    <value>Minimum Length</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_CHIEUDAIANVAOCOT" xml:space="preserve">
+    <value>Length Go In Column(mm)</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_CHIEUDAINOI" xml:space="preserve">
+    <value>Lap Length(mm)</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_CINKETHEP" xml:space="preserve">
+    <value>Bar Spacer</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_CONKETHEP" xml:space="preserve">
+    <value>Bar Spacer</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_COTDAIMOC" xml:space="preserve">
+    <value>C Stirrup</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_COTTHEPBOSUNG" xml:space="preserve">
+    <value>Additional Stirrup</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_DAIGIACUONGDAMPHU" xml:space="preserve">
+    <value>Stirrup for secondary Beam</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_DOANKEODAI2BEN" xml:space="preserve">
+    <value>Extension on both sides</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_DUONGKINHTHEPVAIBO" xml:space="preserve">
+    <value>Hanger bar diameter</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_HEGHTMAX" xml:space="preserve">
+    <value>Max Height</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_HEIGHTDAMBOTRI" xml:space="preserve">
+    <value>Beam Height</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_HEIGHTMAX" xml:space="preserve">
+    <value>Max Height</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_KCDAIGIACUONG" xml:space="preserve">
+    <value>Spacing of Add. Stirrup:</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_LAYOUTTYPE" xml:space="preserve">
+    <value>Layout Type</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_SOLUONGDAIGIACUONG" xml:space="preserve">
+    <value>Number of Stirrup:</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_SOLUONGTHEPVAIBO" xml:space="preserve">
+    <value>Number of hanger bar:</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_THEPGIOLOP2" xml:space="preserve">
+    <value>Layer 2:</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_THEPGIUADAM" xml:space="preserve">
+    <value>Bar Among The Beam</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_THEPGOILOP1" xml:space="preserve">
+    <value>Layer 1:</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_THEPGOILOP3" xml:space="preserve">
+    <value>Layer 3:</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_THEPNHIP" xml:space="preserve">
+    <value>Rebar At Support Cut Point :</value>
+  </data>
+  <data name="BEAMREBAR_CAUTAO_THEPVAIBODAMPHU" xml:space="preserve">
+    <value>Hanger bar of secondary Beam</value>
+  </data>
+  <data name="BEAMREBAR_COVER" xml:space="preserve">
+    <value>Cover</value>
+  </data>
+  <data name="BEAMREBAR_CREATEBEAMSECTION_FARCLIPOFFSET" xml:space="preserve">
+    <value>Far Clip Offset:</value>
+  </data>
+  <data name="BEAMREBAR_CREATEBEAMSECTION_HIDESCALESCOARSER" xml:space="preserve">
+    <value>Hide At Scales Coaser Than</value>
+  </data>
+  <data name="BEAMREBAR_CREATEBEAMSECTION_INCLINEDBEAM" xml:space="preserve">
+    <value>Inclined Beam</value>
+  </data>
+  <data name="BEAMREBAR_CREATEBEAMSECTION_PREVIEWNAMING" xml:space="preserve">
+    <value>Preview Naming</value>
+  </data>
+  <data name="BEAMREBAR_CREATEBEAMSECTION_SECALONGBEAM" xml:space="preserve">
+    <value>Section Along Beam</value>
+  </data>
+  <data name="BEAMREBAR_CREATEBEAMSECTION_SECTIONOFFSETSIDEFACE" xml:space="preserve">
+    <value>Section Offset from Side Face</value>
+  </data>
+  <data name="BEAMREBAR_CREATEMOW" xml:space="preserve">
+    <value>Create Now</value>
+  </data>
+  <data name="BEAMREBAR_CROSSSECTION" xml:space="preserve">
+    <value>Cross Section</value>
+  </data>
+  <data name="BEAMREBAR_DKDAICHINH" xml:space="preserve">
+    <value>Main Diameter:</value>
+  </data>
+  <data name="BEAMREBAR_DKDAIMOC" xml:space="preserve">
+    <value>Stirrup Diameter:</value>
+  </data>
+  <data name="BEAMREBAR_DRAWINGSETTING" xml:space="preserve">
+    <value>Drawing Setting </value>
+  </data>
+  <data name="BEAMREBAR_DUONGKINHDAI" xml:space="preserve">
+    <value>Stirrup Diameter:</value>
+  </data>
+  <data name="BEAMREBAR_END1LENGTH" xml:space="preserve">
+    <value>End 1 Length:</value>
+  </data>
+  <data name="BEAMREBAR_END2LENGTH" xml:space="preserve">
+    <value>End 2 Length:</value>
+  </data>
+  <data name="BEAMREBAR_FARCLIPOFFSET" xml:space="preserve">
+    <value>Far Clip Offset :</value>
+  </data>
+  <data name="BEAMREBAR_HORIZONTAL" xml:space="preserve">
+    <value>Horizontal Beam</value>
+  </data>
+  <data name="BEAMREBAR_KCDAI" xml:space="preserve">
+    <value>Stirrup Spacing(mm)</value>
+  </data>
+  <data name="BEAMREBAR_KCDAIA1" xml:space="preserve">
+    <value>Spacing A1:</value>
+  </data>
+  <data name="BEAMREBAR_KCDAIA2" xml:space="preserve">
+    <value>Spacing A2:</value>
+  </data>
+  <data name="BEAMREBAR_LOP1" xml:space="preserve">
+    <value>Layer 1</value>
+  </data>
+  <data name="BEAMREBAR_LOP2" xml:space="preserve">
+    <value>Layer 2</value>
+  </data>
+  <data name="BEAMREBAR_MAINTOP_BENEOYPHAI" xml:space="preserve">
+    <value>Archor L_y Right:</value>
+  </data>
+  <data name="BEAMREBAR_MAINTOP_BENEOYTRAI" xml:space="preserve">
+    <value>Archor L_y Left:</value>
+  </data>
+  <data name="BEAMREBAR_MAINTOP_NEOCOTTRAI" xml:space="preserve">
+    <value>Archor L_x Left</value>
+  </data>
+  <data name="BEAMREBAR_MAINTOP_NEOCOTXPHAI" xml:space="preserve">
+    <value>Archor L_x Right:</value>
+  </data>
+  <data name="BEAMREBAR_MULTIBEAM" xml:space="preserve">
+    <value>Multi Beams</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_KC2LANNEO" xml:space="preserve">
+    <value>Distance between 2 anchors</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_KHOANGCACH2LOPTHEP" xml:space="preserve">
+    <value>Distance of 2 layers</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_NEOCOT" xml:space="preserve">
+    <value>For Column</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_NEODAM" xml:space="preserve">
+    <value>For Beam</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_NEOMONG" xml:space="preserve">
+    <value>For Foundation</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_NEONHANHTHEP" xml:space="preserve">
+    <value>Anchor-Stress</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_NEOTHEP" xml:space="preserve">
+    <value>Anchor</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_NEOVACH" xml:space="preserve">
+    <value>For Wall</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_NHANTHEP" xml:space="preserve">
+    <value>Stress Rebar</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_QUIDINHNEO" xml:space="preserve">
+    <value>Anchor according to :</value>
+  </data>
+  <data name="BEAMREBAR_NHANTHEP_UONTHEP" xml:space="preserve">
+    <value>Tress Rebar if &amp;lt;</value>
+  </data>
+  <data name="BEAMREBAR_OTHER" xml:space="preserve">
+    <value>Other Beam</value>
+  </data>
+  <data name="BEAMREBAR_PICK2POINT" xml:space="preserve">
+    <value>Pick 2 Point Of Beam Segment</value>
+  </data>
+  <data name="BEAMREBAR_POSITION" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="BEAMREBAR_POSTIONINSECTION" xml:space="preserve">
+    <value>Position in Section</value>
+  </data>
+  <data name="BEAMREBAR_READBEAMDATA" xml:space="preserve">
+    <value>Read Beam Data</value>
+  </data>
+  <data name="BEAMREBAR_REBARLIST" xml:space="preserve">
+    <value>Rebar List:</value>
+  </data>
+  <data name="BEAMREBAR_SECONDARY" xml:space="preserve">
+    <value>Secondary Beam</value>
+  </data>
+  <data name="BEAMREBAR_SECTION" xml:space="preserve">
+    <value>Section</value>
+  </data>
+  <data name="BEAMREBAR_SECTIONTYPE" xml:space="preserve">
+    <value>Section Type:</value>
+  </data>
+  <data name="BEAMREBAR_SECTIONVIEWTEMPLATE" xml:space="preserve">
+    <value>Section View Template:</value>
+  </data>
+  <data name="BEAMREBAR_SHEETNAME" xml:space="preserve">
+    <value>Sheet Name:</value>
+  </data>
+  <data name="BEAMREBAR_SHEETNUMBER" xml:space="preserve">
+    <value>Sheet Number:</value>
+  </data>
+  <data name="BEAMREBAR_SOLUONG" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="BEAMREBAR_SPAN_BEAMSPAN" xml:space="preserve">
+    <value>Beam Span:</value>
+  </data>
+  <data name="BEAMREBAR_SPAN_LEFTSUPPORT" xml:space="preserve">
+    <value>Left Support : </value>
+  </data>
+  <data name="BEAMREBAR_SPAN_LEFTSUPPORTWIDT" xml:space="preserve">
+    <value>Left Support Width:</value>
+  </data>
+  <data name="BEAMREBAR_SPAN_RIGHTSUPPORT" xml:space="preserve">
+    <value>Right Support:</value>
+  </data>
+  <data name="BEAMREBAR_SPAN_RIGHTSUPPORTWIDTH" xml:space="preserve">
+    <value>Right Support Width:</value>
+  </data>
+  <data name="BEAMREBAR_SPAN_SPANINDEX" xml:space="preserve">
+    <value>Span Index:</value>
+  </data>
+  <data name="BEAMREBAR_STIRRUP" xml:space="preserve">
+    <value>Stirrup</value>
+  </data>
+  <data name="BEAMREBAR_STIRRUP_CACNHIP" xml:space="preserve">
+    <value>Set Remaing Span</value>
+  </data>
+  <data name="BEAMREBAR_STIRRUP_DAILONGKIN" xml:space="preserve">
+    <value>Rectangle</value>
+  </data>
+  <data name="BEAMREBAR_STIRRUP_DAIMOC" xml:space="preserve">
+    <value>Ver.Belt Hook</value>
+  </data>
+  <data name="BEAMREBAR_STIRRUP_DAIMOCNGANG" xml:space="preserve">
+    <value>Hor.Belt Hook</value>
+  </data>
+  <data name="BEAMREBAR_STIRRUP_TATCANHIP" xml:space="preserve">
+    <value>Set All Span</value>
+  </data>
+  <data name="BEAMREBAR_STIRRUP_XOADAICHINH" xml:space="preserve">
+    <value>Main delete</value>
+  </data>
+  <data name="BEAMREBAR_THEPCHINH" xml:space="preserve">
+    <value>Main Bar</value>
+  </data>
+  <data name="BEAMREBAR_TOPBAR" xml:space="preserve">
+    <value>Top Bar</value>
+  </data>
+  <data name="BEAMREBAR_TOPLAYER" xml:space="preserve">
+    <value>Top Layer</value>
+  </data>
+  <data name="BEAMREBAR_VERTICAL" xml:space="preserve">
+    <value>Vertical Beam</value>
+  </data>
+  <data name="BEAMREBAR_XBEAM" xml:space="preserve">
+    <value>X.Beam</value>
+  </data>
+  <data name="BEAMREBAR_YBEAM" xml:space="preserve">
+    <value>Y.Beam</value>
+  </data>
+  <data name="BEMAREBAR_CROPVIEW" xml:space="preserve">
+    <value>Crop View</value>
+  </data>
+  <data name="COLUMN_FROM_CAD_VIEW_TITLE" xml:space="preserve">
+    <value>CREATE COLUMN FROM AUTOCAD FILE</value>
+  </data>
+  <data name="COMMON_ADD" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="COMMON_ADDBOT" xml:space="preserve">
+    <value>Addbot</value>
+  </data>
+  <data name="COMMON_AREA" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="COMMON_BACK" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="COMMON_BASELEVEL" xml:space="preserve">
+    <value>Base Level :</value>
+  </data>
+  <data name="COMMON_BASEOFFSET" xml:space="preserve">
+    <value>Base Offset :</value>
+  </data>
+  <data name="COMMON_BOT" xml:space="preserve">
+    <value>Bot</value>
+  </data>
+  <data name="COMMON_BOTBAR" xml:space="preserve">
+    <value>Botdiameter</value>
+  </data>
+  <data name="COMMON_BOTBARNUMBER" xml:space="preserve">
+    <value>Number of bottom bar</value>
+  </data>
+  <data name="COMMON_BOTTOMHOOK" xml:space="preserve">
+    <value>Bot hook</value>
+  </data>
+  <data name="COMMON_CANCEL" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="COMMON_CLOSE" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="COMMON_COVER" xml:space="preserve">
+    <value>Rebar Cover</value>
+  </data>
+  <data name="COMMON_CREATE" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="COMMON_DEFAULT" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="COMMON_DELETE" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="COMMON_DELETEALL" xml:space="preserve">
+    <value>Delete All</value>
+  </data>
+  <data name="COMMON_DEPT" xml:space="preserve">
+    <value>Dept :</value>
+  </data>
+  <data name="COMMON_DIAMETER" xml:space="preserve">
+    <value>Diameter</value>
+  </data>
+  <data name="COMMON_DLEFT" xml:space="preserve">
+    <value>D Left</value>
+  </data>
+  <data name="COMMON_DRIGHT" xml:space="preserve">
+    <value>D Right</value>
+  </data>
+  <data name="COMMON_EDGENUMBER" xml:space="preserve">
+    <value>Edges number</value>
+  </data>
+  <data name="COMMON_ENDPOINT" xml:space="preserve">
+    <value>End Point</value>
+  </data>
+  <data name="COMMON_ENDTYPE" xml:space="preserve">
+    <value>End Type</value>
+  </data>
+  <data name="COMMON_ERRORMESSAGE" xml:space="preserve">
+    <value>You have not selected any elements</value>
+  </data>
+  <data name="COMMON_EXPORT" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="COMMON_FAMILY" xml:space="preserve">
+    <value>Family :</value>
+  </data>
+  <data name="COMMON_FLOORTYPE" xml:space="preserve">
+    <value>Floor type:</value>
+  </data>
+  <data name="COMMON_GRIDTYPES" xml:space="preserve">
+    <value>Grid types :</value>
+  </data>
+  <data name="COMMON_GUIDE" xml:space="preserve">
+    <value>Guide</value>
+  </data>
+  <data name="COMMON_HEIGHT" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="COMMON_HEIGHTFAMILY" xml:space="preserve">
+    <value>Height :</value>
+  </data>
+  <data name="COMMON_ISCOLUMN" xml:space="preserve">
+    <value>IsColumn</value>
+  </data>
+  <data name="COMMON_LAYER" xml:space="preserve">
+    <value>Layer</value>
+  </data>
+  <data name="COMMON_LEFRADIO" xml:space="preserve">
+    <value>Left Radio</value>
+  </data>
+  <data name="COMMON_LEFT" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="COMMON_LEFTLENGTH" xml:space="preserve">
+    <value>Left Length</value>
+  </data>
+  <data name="COMMON_LENGTH" xml:space="preserve">
+    <value>Length </value>
+  </data>
+  <data name="COMMON_LEVEL" xml:space="preserve">
+    <value>Level :</value>
+  </data>
+  <data name="COMMON_LOAD" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="COMMON_MARK" xml:space="preserve">
+    <value>Mark</value>
+  </data>
+  <data name="COMMON_MODIFY" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="COMMON_NAMING" xml:space="preserve">
+    <value>Naming</value>
+  </data>
+  <data name="COMMON_NEXT" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="COMMON_NOTIFY" xml:space="preserve">
+    <value>Notify</value>
+  </data>
+  <data name="COMMON_NUMBER" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="COMMON_OFFSETFROMLEVEL" xml:space="preserve">
+    <value>Offset from level  : </value>
+  </data>
+  <data name="COMMON_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="COMMON_OTHER" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="COMMON_PARAMATER" xml:space="preserve">
+    <value>Paramater</value>
+  </data>
+  <data name="COMMON_PICKPOINT" xml:space="preserve">
+    <value>Pick a Point</value>
+  </data>
+  <data name="COMMON_POSTIONINSECTION" xml:space="preserve">
+    <value>Position in Section</value>
+  </data>
+  <data name="COMMON_PROCESS" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="COMMON_RADIUS" xml:space="preserve">
+    <value>Radius </value>
+  </data>
+  <data name="COMMON_RANGEOFOPERATION" xml:space="preserve">
+	  <value>Pham vi</value>
+  </data>
+  <data name="COMMON_REBAR" xml:space="preserve">
+    <value>Rebar diameter</value>
+  </data>
+  <data name="COMMON_REMOVE" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="COMMON_RIGHT" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="COMMON_RIGHTLENGTH" xml:space="preserve">
+    <value>Right Length</value>
+  </data>
+  <data name="COMMON_RIGHTRADIO" xml:space="preserve">
+    <value>Right Radio</value>
+  </data>
+  <data name="COMMON_SAVE" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="COMMON_SELECTFROMCAD" xml:space="preserve">
+    <value>Select from cad</value>
+  </data>
+  <data name="COMMON_SELECTION" xml:space="preserve">
+    <value>Selection</value>
+  </data>
+  <data name="COMMON_SETTING" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="COMMON_SLABRYPE" xml:space="preserve">
+    <value>Slab type:</value>
+  </data>
+  <data name="COMMON_SPACING" xml:space="preserve">
+    <value>Spacing</value>
+  </data>
+  <data name="COMMON_SPACINGREBAR" xml:space="preserve">
+    <value>Spacing rebar</value>
+  </data>
+  <data name="COMMON_SPACINGSTIRRUP" xml:space="preserve">
+    <value>Spacing stirrup</value>
+  </data>
+  <data name="COMMON_START" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="COMMON_STARTPOINT" xml:space="preserve">
+    <value>Start Point</value>
+  </data>
+  <data name="COMMON_STARTYPE" xml:space="preserve">
+    <value>Start Type</value>
+  </data>
+  <data name="COMMON_STIRRUP" xml:space="preserve">
+    <value>Duong Kinh Thep Dai</value>
+  </data>
+  <data name="COMMON_TEXT" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="COMMON_THICKNESS" xml:space="preserve">
+    <value>Thickness :</value>
+  </data>
+  <data name="COMMON_TOGGLESECTIONIMAGE" xml:space="preserve">
+    <value>Toggle Section/Image</value>
+  </data>
+  <data name="COMMON_TOP" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="COMMON_TOPBAR" xml:space="preserve">
+    <value>Topdiameter</value>
+  </data>
+  <data name="COMMON_TOPBARNUMBER" xml:space="preserve">
+    <value>Number of top bar</value>
+  </data>
+  <data name="COMMON_TOPHOOK" xml:space="preserve">
+    <value>Top hook</value>
+  </data>
+  <data name="COMMON_TOPLEVEL" xml:space="preserve">
+    <value>Top Level :</value>
+  </data>
+  <data name="COMMON_TOPOFFSET" xml:space="preserve">
+    <value>Top Offset :</value>
+  </data>
+  <data name="COMMON_TOTAL" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="COMMON_UNDO" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="COMMON_UPDATE" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="COMMON_WIDTH" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="COMMON_WITDHFAMILY" xml:space="preserve">
+    <value>Width : </value>
+  </data>
+</root>

@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="BimSpeedStructureBeamDesign.BeamRebar.View.SubViews.GeometryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Converters="clr-namespace:BimSpeedUtils.WPFUtils.Converters;assembly=BimSpeedUtils"
+             mc:Ignorable="d"
+             xmlns:p="clr-namespace:BimSpeedStructureBeamDesign.Properties"
+             d:DesignHeight="520"
+             d:DesignWidth="888">
+    <FrameworkElement.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/BimSpeedStructureBeamDesign;component/Resources/ResourceString.en.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/BimSpeedUtils;component/WPFUtils/ResourceDictionaries/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Button"
+                   BasedOn="{StaticResource ResourceKey=ButtonStyle}" />
+            <Converters:FeetToIntString x:Key="FeetToIntString" />
+
+            <Converters:NullVisibilityConverter x:Key="NullVisibilityConverter" />
+
+        </ResourceDictionary>
+    </FrameworkElement.Resources>
+
+
+    <Grid DataContext="{Binding BeamRebarViewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="47*" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="{DynamicResource BEAMREBAR_ADDBOTBARVIEW_SPANINFO}"
+                                      Grid.ColumnSpan="2">
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="203" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Left"
+                               Text="{DynamicResource BEAMREBAR_ADDBOTBARVIEW_SPANINDEX}" />
+
+                    <TextBlock Grid.Column="0"
+                                                   Grid.Row="1"
+                                                   Height="25"
+                                                   HorizontalAlignment="Left"
+                               Text="{DynamicResource BEAMREBAR_ADDBOTBARVIEW_WIDTH}" />
+                    <TextBlock Grid.Column="0"
+                                                   Grid.Row="2"
+                                                   Height="25"
+                                                   HorizontalAlignment="Left"
+                               Text="{DynamicResource BEAMREBAR_ADDBOTBARVIEW_HEIGHT}"/>
+
+                    <ComboBox Grid.Column="1"
+                                                  Grid.Row="0"
+                                                  Height="25"
+                                                  SelectedItem="{Binding SelectedSpanModel}"
+                                                  ItemsSource="{Binding SpanModels}"
+                                                  DisplayMemberPath="Index" />
+
+                    <TextBox Grid.Column="1"
+                                                 Grid.Row="1"
+                                                 Height="25"
+                                                 Text="{Binding SelectedSpanModel.Width,Converter={StaticResource FeetToIntString}}" />
+                    <TextBox Grid.Column="1"
+                                                 Grid.Row="2"
+                                                 Height="25"
+                                                 HorizontalAlignment="Stretch"
+                                                 Text="{Binding SelectedSpanModel.Height,Converter={StaticResource FeetToIntString}}" />
+                </Grid>
+                <Grid Visibility="{Binding SelectedSpanModel.LeftSupportModel,Converter={StaticResource NullVisibilityConverter }}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Left"
+                               Text="{DynamicResource BEAMREBAR_ADDBOTBARVIEW_LEFTSUPPORT}" />
+                    <TextBlock Grid.Column="0"
+                                                   Grid.Row="1"
+                                                   Height="30"
+                                                   HorizontalAlignment="Left"
+                               Text="{DynamicResource BEAMREBAR_ADDBOTBARVIEW_LEFTSUPPORTWIDTH}" />
+                    <TextBox Grid.Column="1"
+                                                 Grid.Row="0"
+                                                 Height="25"
+                                                 HorizontalAlignment="Stretch"
+                                                 Text="{Binding SelectedSpanModel.LeftSupportModel.Name}" />
+                    <TextBox Grid.Column="1"
+                                                 Grid.Row="1"
+                                                 Height="25"
+                                                 HorizontalAlignment="Stretch"
+                                                 Text="{Binding SelectedSpanModel.LeftSupportModel.Width,Converter={StaticResource FeetToIntString}}" />
+                </Grid>
+                <Grid Visibility="{Binding SelectedSpanModel.RightSupportModel,Converter={StaticResource NullVisibilityConverter }}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Left"
+                               Text="{DynamicResource BEAMREBAR_ADDBOTBARVIEW_RIGHTSUPPORT}" />
+                    <TextBlock Grid.Column="0"
+                                                   Grid.Row="1"
+                                                   Height="25"
+                                                   HorizontalAlignment="Left"
+                               Text="{DynamicResource BEAMREBAR_ADDBOTBARVIEW_RIGHTSUPPORTWIDTH}" />
+                    <TextBox Grid.Column="1"
+                                                 Grid.Row="0"
+                                                 Height="25"
+                                                 HorizontalAlignment="Stretch"
+                                                 Text="{Binding SelectedSpanModel.RightSupportModel.Name}" />
+                    <TextBox Grid.Column="1"
+                                                 Grid.Row="1"
+                                                 Height="25"
+                                                 HorizontalAlignment="Stretch"
+                                                 Text="{Binding SelectedSpanModel.RightSupportModel.Width,Converter={StaticResource FeetToIntString}}" />
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

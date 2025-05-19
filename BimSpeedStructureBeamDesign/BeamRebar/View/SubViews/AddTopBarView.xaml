@@ -1,0 +1,307 @@
+﻿<UserControl x:Class="BimSpeedStructureBeamDesign.BeamRebar.View.SubViews.AddTopBarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:p="clr-namespace:BimSpeedStructureBeamDesign.Properties"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Converters="clr-namespace:BimSpeedUtils.WPFUtils.Converters;assembly=BimSpeedUtils"
+             xmlns:converter="clr-namespace:BimSpeedStructureBeamDesign.BeamRebar.Converter"
+             mc:Ignorable="d">
+    <FrameworkElement.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/BimSpeedStructureBeamDesign;component/Resources/ResourceString.en.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/BimSpeedUtils;component/WPFUtils/ResourceDictionaries/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="ComboBox"
+                   BasedOn="{StaticResource ResourceKey=ComboBoxStyle}">
+                <Setter Property="Height"
+                        Value="25" />
+
+                <Setter Property="BorderBrush"
+                        Value="Gray" />
+            </Style>
+            <Style TargetType="TextBox"
+                   BasedOn="{StaticResource ResourceKey=TextBoxStyle}">
+                <Setter Property="Height"
+                        Value="25" />
+                <Setter Property="BorderBrush"
+                        Value="Gray" />
+            </Style>
+            <Style TargetType="Button"
+                   BasedOn="{StaticResource ResourceKey=ButtonStyle}" />
+            <Converters:FeetToIntString x:Key="FeetToIntString" />
+            <converter:WidthConverter x:Key="WidthConverter" />
+            <Converters:NullToBoolConverter x:Key="NullableToBoolConverter" />
+            <Converters:IntToDiameterStringConverter x:Key="IntToDiameterStringConverter" />
+
+            <Converters:RevitDiameterToStringConverter x:Key="RevitDiameterToStringConverter" />
+        </ResourceDictionary>
+    </FrameworkElement.Resources>
+
+
+    <DockPanel>
+        <GroupBox   Header="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_REBARLIST}">
+            <ListView Name="LvAdditionalTopBar"
+                      ItemsSource="{Binding AllBars}"
+                      SelectedItem="{Binding SelectedBar}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment"
+                                Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="{DynamicResource LAYER}"
+                                        Width="150"
+                                        DisplayMemberBinding="{Binding Name}" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition   Width="{Binding IsShowSection,Mode=OneWay,Converter={StaticResource WidthConverter}}" />
+            </Grid.ColumnDefinitions>
+
+            <GroupBox MinWidth="400"
+                      Grid.Column="0"
+                      Header="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_REBARINFO}">
+                <DockPanel>
+                    <Grid Height="35"
+                          DockPanel.Dock="Bottom">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Command="{Binding AddRebarCommand}"
+                                VerticalAlignment="Bottom"
+                                Height="25"
+                                Grid.Column="0"
+                                Content="{DynamicResource COMMON_BUTTON_ADD}" />
+                        <Button Command="{Binding NextRebarCommand}"
+                                VerticalAlignment="Bottom"
+                                Height="25"
+                                Grid.Column="1"
+                                Content="{DynamicResource COMMON_BUTTON_NEXT}" />
+                        <Button Command="{Binding DeleteRebarCommand}"
+                                CommandParameter="{Binding ElementName=LvAdditionalTopBar}"
+                                VerticalAlignment="Bottom"
+                                Height="25"
+                                Grid.Column="2"
+                                Content="{DynamicResource COMMON_BUTTON_DELETE}" />
+                        <Button Command="{Binding DeleteAllCommand}"
+                                VerticalAlignment="Bottom"
+                                Grid.Column="3"
+                                Margin="5"
+                                Height="25"
+                                Content="{DynamicResource COMMON_BUTTON_DELETEALL}" />
+                    </Grid>
+                    <Grid DockPanel.Dock="Top"
+                          IsEnabled="{Binding SelectedBar,Converter={StaticResource NullableToBoolConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="0.8*" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="0.8*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="0" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="35" />
+
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_LAYER}" />
+                        <TextBlock Grid.Row="0"
+                                   Grid.Column="2"
+                                   Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_DIAMETER}" />
+                        <Separator Grid.Column="0"
+                                   Grid.Row="2"
+                                   Background="IndianRed"
+                                   Grid.ColumnSpan="4" />
+                        <TextBlock Grid.Row="3"
+                                   Grid.Column="0"
+                                   Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_STARTPOINT}" />
+                        <TextBlock Grid.Row="4"
+                                   Grid.Column="0"
+                                   Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_STARTTYPE}" />
+                        <Grid Grid.Row="5"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="0.8*" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="0.8*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock  Visibility="{Binding SelectedBar.LeftRatioVisibility}"
+                                        Grid.Column="0"
+                                        Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_LEFTRADIO}" />
+                            <TextBox  Visibility="{Binding SelectedBar.LeftRatioVisibility}"
+                                      Text="{Binding SelectedBar.LeftRatio,UpdateSourceTrigger=PropertyChanged,NotifyOnTargetUpdated=True,Delay=500}"
+                                      Grid.Column="1" />
+
+                            <TextBlock  Visibility="{Binding SelectedBar.RightRatioVisibility}"
+                                        Grid.Column="2"
+                                        Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_RIGHTRADIO}" />
+                            <TextBox  Visibility="{Binding SelectedBar.RightRatioVisibility}"
+                                      Text="{Binding SelectedBar.RightRatio,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,Delay=500}"
+                                      Grid.Column="3" />
+                        </Grid>
+                        <Grid Grid.Row="6"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="0.8*" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="0.8*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_LEFTLENGTH}" />
+                            <TextBox PreviewTextInput="UIElement_OnPreviewTextInput"
+                                     Text="{Binding SelectedBar.LeftLength,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,Converter={StaticResource FeetToIntString},Delay=500}"
+                                     Grid.Column="1" />
+
+                            <TextBlock Grid.Column="2"
+                                       Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_RIGHTLENGTH}" />
+
+                            <TextBox PreviewTextInput="UIElement_OnPreviewTextInput"
+                                     Text="{Binding SelectedBar.RightLength,Converter={StaticResource FeetToIntString},UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,Delay=500}"
+                                     Grid.Column="3" />
+                        </Grid>
+
+                        <Grid Grid.Row="7"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="0.8*" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="0.8*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Visibility="{Binding SelectedBar.DLeftVisibility}"
+                                       Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_DLEFT}" />
+                            <TextBox PreviewTextInput="UIElement_OnPreviewTextInput"
+                                     Visibility="{Binding SelectedBar.DLeftVisibility}"
+                                     Text="{Binding SelectedBar.DTrai,UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,Converter={StaticResource IntToDiameterStringConverter},Delay=500}"
+                                     Grid.Column="1" />
+                            <TextBlock Grid.Column="2"
+                                       Visibility="{Binding SelectedBar.DRightVisibility}"
+                                       Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_DRIGHT}" />
+                            <TextBox PreviewTextInput="UIElement_OnPreviewTextInput"
+                                     Visibility="{Binding SelectedBar.DRightVisibility}"
+                                     Text="{Binding SelectedBar.DPhai,Converter={StaticResource IntToDiameterStringConverter},UpdateSourceTrigger=PropertyChanged,NotifyOnSourceUpdated=True,Delay=500}"
+                                     Grid.Column="3" />
+                        </Grid>
+
+                        <Separator Background="IndianRed"
+                                   Grid.Row="9"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="4" />
+                        <TextBlock Grid.Row="3"
+                                   Grid.Column="2"
+                                   Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_ENDPOINT}" />
+                        <TextBlock Grid.Row="4"
+                                   Grid.Column="2"
+                                   Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_ENDTYPE}" />
+
+                        <ComboBox Grid.Row="0"
+                                  DisplayMemberPath="Name"
+                                  ItemsSource="{Binding SelectedBar.Layers}"
+                                  SelectedItem="{Binding SelectedBar.Layer}"
+                                  Grid.Column="1" />
+                        <ComboBox ItemsSource="{Binding BeamRebarRevitData.BarDiameters}"
+                                  SelectedItem="{Binding SelectedBar.BarDiameter}"
+                                  Grid.Row="0"
+                                  Grid.Column="3">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <ComboBox ItemsSource="{Binding SelectedBar.Starts}"
+                                  SelectedItem="{Binding SelectedBar.Start}"
+                                  Grid.Row="3"
+                                  Grid.Column="1" />
+                        <ComboBox   ItemsSource="{Binding SelectedBar.RebarStartTypes}"
+                                    SelectedItem="{Binding SelectedBar.RebarStartType}"
+                                    Grid.Row="4"
+                                    Grid.Column="1" />
+                        <ComboBox  ItemsSource="{Binding SelectedBar.Ends}"
+                                   SelectedItem="{Binding SelectedBar.End}"
+                                   Grid.Row="3"
+                                   Grid.Column="3" />
+                        <ComboBox  ItemsSource="{Binding SelectedBar.RebarEndTypes}"
+                                   SelectedItem="{Binding SelectedBar.RebarEndType}"
+                                   Grid.Row="4"
+                                   Grid.Column="3" />
+                        <ComboBox SelectedItem="{Binding SelectedBar.SelectedNumberOfRebar}"
+                                  ItemsSource="{Binding SelectedBar.NumberOfRebarList}"
+                                  Grid.Row="10"
+                                  Grid.Column="1" />
+                        <TextBlock Grid.Row="10"
+                                   Grid.Column="0"
+                                   Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_NUMBER}" />
+
+                        <TextBlock Grid.Row="10"
+                                   Grid.Column="2"
+                                   Text="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_POSITIONINSECTION}" />
+                        <Button Grid.Row="10"
+                                Grid.Column="3"
+                                IsEnabled="True"
+                                Content="{Binding SelectedBar.RebarPointsInSectionString}"
+                                Command="{Binding SelectedBar.PositionInSectionCommand}"
+                                HorizontalAlignment="Stretch"
+                                Width="Auto" />
+                    </Grid>
+                </DockPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Column="1"
+                      Header="{DynamicResource BEAMREBAR_ADDTOPBARVIEW_IMAGE}">
+                <StackPanel Orientation="Vertical">
+                    <Image MaxHeight="150"
+                           Margin="2"
+                           MaxWidth="500"
+                           Source="../Images/TOP-BAR-TYPE-1.png" />
+
+
+                    <Separator Background="IndianRed"
+                               Grid.Row="8"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="4" />
+
+                    <Image MaxHeight="150"
+                           Margin="2"
+                           MaxWidth="500"
+                           Source="../Images/TOP-BAR-TYPE-2.png" />
+
+                </StackPanel>
+
+            </GroupBox>
+        </Grid>
+
+    </DockPanel>
+</UserControl>

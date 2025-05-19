@@ -1,0 +1,10 @@
+﻿<RevitAddIns>
+    <AddIn Type="Application">
+        <Name>BimSpeed.Structure.Beam</Name>
+        <Assembly>BimSpeedStructureBeamDesign\BimSpeedStructureBeamDesign.dll</Assembly>
+        <AddInId>9f50ce12-c3fb-43ee-afab-38077a7b32ee</AddInId>
+        <FullClassName>BimSpeedStructureBeamDesign.Application</FullClassName>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+    </AddIn>
+</RevitAddIns>

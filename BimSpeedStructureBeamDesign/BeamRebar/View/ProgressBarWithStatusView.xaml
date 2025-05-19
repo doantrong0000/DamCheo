@@ -1,0 +1,104 @@
+﻿<Window x:Class="BimSpeedStructureBeamDesign.BeamRebar.View.ProgressBarWithStatusView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:BimSpeedStructureBeamDesign.Properties"
+        xmlns:converters="clr-namespace:BimSpeedUtils.WPFUtils.Converters;assembly=BimSpeedUtils"
+        xmlns:view="clr-namespace:BimSpeedStructureBeamDesign.BeamRebar.View"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Topmost="True"
+        Icon="/BimSpeedUtils;component/WPFUtils/bimspeed.ico"
+        Title="ProgressBarView"
+        SizeToContent="Height"
+        Width="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/BimSpeedUtils;component/WPFUtils/ResourceDictionaries/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="Button"
+                   BasedOn="{StaticResource ResourceKey=ButtonStyle}" />
+            <Style TargetType="CheckBox"
+                   BasedOn="{StaticResource ResourceKey=CheckBoxStyle}" />
+            <Style TargetType="RadioButton"
+                   BasedOn="{StaticResource ResourceKey=RadioButtonStyle}" />
+            <Style TargetType="GroupBox"
+                   BasedOn="{StaticResource ResourceKey=GroupBoxStyle}" />
+            <Style TargetType="ComboBox"
+                   BasedOn="{StaticResource ResourceKey=ComboBoxStyle}" />
+            <!--<Style TargetType="ToggleButton" BasedOn="{StaticResource ResourceKey=ToggleButtonStyle}" />-->
+            <Style TargetType="TextBox"
+                   BasedOn="{StaticResource ResourceKey=TextBoxStyle}" />
+            <Style TargetType="ProgressBar"
+                   BasedOn="{StaticResource ResourceKey=ProgressBarStyle}" />
+            
+                   
+            <converters:IntToStringConverter x:Key="IntToStringConverter"></converters:IntToStringConverter>
+            <converters:FeetToIntString x:Key="FeetToIntString"></converters:FeetToIntString>
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <Grid Margin="2,2,2,2">
+        <DockPanel LastChildFill="True">
+            <StackPanel Margin="2,2,2,2"
+                        HorizontalAlignment="Right"
+                        DockPanel.Dock="Bottom"
+                        Orientation="Horizontal">
+                <Button Click="ButtonBase_OnClick"
+                        Margin="2,2,2,2"
+                        Height="25"
+                        Width="68"
+                        HorizontalAlignment="Right">
+                    Abort
+                </Button>
+                <Button Name="BtClose"
+                        Click="BtClose_OnClick"
+                        IsCancel="True"
+                        Margin="2,2,2,2"
+                        Height="25"
+                        Width="68"
+                        HorizontalAlignment="Right">
+                    Close
+                </Button>
+            </StackPanel>
+
+            <Grid Visibility="Collapsed"
+                  DockPanel.Dock="Top">
+                <ProgressBar Visibility="Hidden"
+                             Height="30"
+                             Name="pb"
+                             IsIndeterminate="true"
+                             Margin="2,2,2,2"
+                             Foreground="#FF119C68"></ProgressBar>
+                <TextBlock Name="TbPercent"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center">Percent</TextBlock>
+            </Grid>
+            <DockPanel DockPanel.Dock="Top"
+                       Margin="2"
+                       Height="200">
+                <Separator DockPanel.Dock="Top"
+                           BorderThickness="1"
+                           BorderBrush="IndianRed"></Separator>
+                <TextBlock DockPanel.Dock="Top"
+                           HorizontalAlignment="Left"
+                           FontSize="16"
+                           Text="{DynamicResource PROCESS}"></TextBlock>
+                <Separator DockPanel.Dock="Top"
+                           BorderThickness="1"
+                           Margin="10,5,5,10"
+                           BorderBrush="IndianRed"></Separator>
+                <ScrollViewer VerticalScrollBarVisibility="Visible"
+                              DockPanel.Dock="Bottom"
+                              view:ScrollViewerEx.AutoScrollToEnd="True">
+                    <TextBlock VerticalAlignment="Top"
+                               Name="TbStatus"
+                               HorizontalAlignment="Left"></TextBlock>
+                </ScrollViewer>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

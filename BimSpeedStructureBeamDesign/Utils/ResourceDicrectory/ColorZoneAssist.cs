@@ -1,0 +1,35 @@
+﻿using System.Windows;
+using System.Windows.Media;
+
+namespace BimSpeedStructureBeamDesign.Utils.ResourceDicrectory
+{
+    public static class ColorZoneAssist
+    {
+        public static readonly DependencyProperty ModeProperty = DependencyProperty.RegisterAttached(
+            "Mode", typeof(ColorZoneMode), typeof(ColorZoneAssist), new FrameworkPropertyMetadata(default(ColorZoneMode), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetMode(DependencyObject element, ColorZoneMode value)
+            => element.SetValue(ModeProperty, value);
+
+        public static ColorZoneMode GetMode(DependencyObject element)
+            => (ColorZoneMode)element.GetValue(ModeProperty);
+
+        public static readonly DependencyProperty BackgroundProperty = DependencyProperty.RegisterAttached(
+            "Background", typeof(Brush), typeof(ColorZoneAssist), new FrameworkPropertyMetadata(default(Brush)));
+
+        public static void SetBackground(DependencyObject element, Brush value)
+            => element.SetValue(BackgroundProperty, value);
+
+        public static Brush GetBackground(DependencyObject element)
+            => (Brush)element.GetValue(BackgroundProperty);
+
+        public static readonly DependencyProperty ForegroundProperty = DependencyProperty.RegisterAttached(
+            "Foreground", typeof(Brush), typeof(ColorZoneAssist), new FrameworkPropertyMetadata(default(Brush)));
+
+        public static void SetForeground(DependencyObject element, Brush value)
+            => element.SetValue(ForegroundProperty, value);
+
+        public static Brush GetForeground(DependencyObject element)
+            => (Brush)element.GetValue(ForegroundProperty);
+    }
+}

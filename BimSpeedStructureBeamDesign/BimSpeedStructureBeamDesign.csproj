@@ -284,6 +284,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="BeamRebar\Model\DiagonalBeamModel\" />
 		<Folder Include="RebarShape2D\" />
 	</ItemGroup>
 

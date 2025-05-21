@@ -119,7 +119,6 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.ViewModel
             SpanModels = beamModel.SpanModels;
             selectedSpanModel = SpanModels.FirstOrDefault();
             ToggleCommand = new RelayCommand(x => Toggle());
-
         }
 
         private void GetData()
@@ -132,7 +131,7 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.ViewModel
             BeamRebarSettingViewModel = BeamRebarRevitData.BeamRebarSettingViewModel;
 
             BeamRebarRevitData.BeamRebarSettingViewModel = BeamRebarSettingViewModel;
-
+            // tao thep
             MainBarInTopViewModel = new MainBarInTopViewModel() { BeamModel = BeamModel };
             MainBarInBottomViewModel = new MainBarInBottomViewModel { BeamModel = BeamModel };
             AdditionalBottomBarViewModel = new AdditionalBottomBarViewModel() { BeamModel = BeamModel };

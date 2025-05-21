@@ -66,18 +66,18 @@ namespace BimSpeedStructureBeamDesign.BeamRebar.Services
             }
 
             var lc = beam.Location as LocationCurve;
-            if (lc == null)
-            {
-               errorMessage = Define.BeamsAreNotStraight;
-               return false;
-            }
+            //if (lc == null)
+            //{
+            //   errorMessage = Define.BeamsAreNotStraight;
+            //   return false;
+            //}
 
             var line = lc.Curve as Line;
-            if (line == null)
-            {
-               errorMessage = Define.BeamsAreNotStraight;
-               return false;
-            }
+            //if (line == null)
+            //{
+            //   errorMessage = Define.BeamsAreNotStraight;
+            //   return false;
+            //}
             lines.Add(line);
             var startLevelOffset =
                 beam.GetParameterValueByNameAsDouble(BuiltInParameter.STRUCTURAL_BEAM_END0_ELEVATION);

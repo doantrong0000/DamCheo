@@ -19,30 +19,37 @@ namespace BimSpeedStructureBeamDesign.CurvedBeamRebar
 {
     [Transaction(TransactionMode.Manual)]
     [Regeneration(RegenerationOption.Manual)]
-    public class CurvedBeamRebarCmd : IExternalCommand
+    public class TestCmd : IExternalCommand
     {
         Result IExternalCommand.Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             AC.GetInformation(commandData, GetType().Name);
-            RebarData.Instance = new RebarData();
-            Element beam = null;
-            try
-            {
-               beam = AC.Selection.PickObject(ObjectType.Element, new BeamSelectionFilter(), "Beams...").ToElement();
 
-            }
-            catch
+
+
+            var modelCurve = AC.Selection.PickObject(ObjectType.Element, "curve").ToElement() as ModelCurve;
+
+            var curve = modelCurve.GeometryCurve;
+
+            var newCurve=curve.CreateOffset(200.MmToFoot(), XYZ.BasisZ);
+
+
+           
+            using (var tx= new Transaction(AC.Document,"C"))
             {
-                "BEAMREBARCMD_MESSAGE2".NotificationSuccess(this, "You have aborted the pick operation!");
-                return Result.Cancelled;
+                tx.Start();
+
+                Plane plane = Plane.CreateByNormalAndOrigin(XYZ.BasisZ, newCurve.GetEndPoint(0));
+                SketchPlane sketchPlane = SketchPlane.Create(AC.Document, plane);
+
+                // Tạo model curve mới
+                AC.Document.Create.NewModelCurve(newCurve, sketchPlane);
+                tx.Commit();
             }
 
-            var vm = new CurvedBeamViewModel(beam);
-            var view = new CurvedBeamView(){DataContext = vm};
-            view.ShowDialog();
-            
             return Result.Succeeded;
         }
+
     }
 
 }

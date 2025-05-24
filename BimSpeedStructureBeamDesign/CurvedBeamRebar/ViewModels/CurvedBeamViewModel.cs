@@ -1,0 +1,198 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Structure;
+using Autodesk.Revit.UI;
+using BimSpeedStructureBeamDesign.BeamRebar.Model;
+using BimSpeedStructureBeamDesign.CurvedBeamRebar.Models;
+using BimSpeedStructureBeamDesign.CurvedBeamRebar.Views;
+using BimSpeedUtils;
+
+namespace BimSpeedStructureBeamDesign.CurvedBeamRebar.ViewModels
+{
+    public class CurvedBeamViewModel
+    {
+        public CurvedBeamView MainView { get; set; }
+        public List<int> Numbers { get; set; } = new() {2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        public List<int> FillNumbers { get; set; } = new() {1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        public RebarData RebarData { get; set; }
+
+        public bool CheckFillTop { get; set; } = false;
+        public bool CheckFill2Top { get; set; } = false;
+        public bool CheckFillBot { get; set; } = false;
+        public bool CheckFill2Bot { get; set; } = false;
+
+        public RebarBarType MainTop { get; set; }
+        public RebarBarType FillTop { get; set; }
+        public RebarBarType Layer2Top { get; set; }
+        public RebarBarType MainBot { get; set; }
+        public RebarBarType FillBot { get; set; }
+        public RebarBarType Layer2Bot { get; set; }
+        public int MainTopNumber { get; set; }
+        public int FillTopNumber { get; set; }
+        public int Layer2TopNumber { get; set; }
+        public int MainBotNumber { get; set; }
+        public int FillBotNumber { get; set; }
+        public int Layer2BotNumber { get; set; }
+        public double HookXTop { get; set; }
+        public double HookYTop { get; set; }
+        public double HookXBot { get; set; }
+        public double HookYBot { get; set; }
+        public double Cover { get; set; }
+
+        public double ZLayer1Top { get; set; }
+        public double ZLayer2Top { get; set; }
+        public double ZLayer1Bot { get; set; }
+        public double ZLayer2Bot { get; set; }
+
+        public CurvedBeamGeometry CurvedBeamGeometry { get; set; }
+        public CurvedBeamModel CurvedBeamModel{ get; set; }
+        public FamilyInstance Beam { get; set; }
+        public Element BeamEle { get; set; }
+        public RelayCommand CreateCommand { get; set; }
+        public CurvedBeamViewModel(Element beam)
+        {
+            Beam = beam as FamilyInstance;
+            BeamEle = beam;
+            RebarData = RebarData.Instance;
+            CurvedBeamModel= new CurvedBeamModel(Beam);
+            CurvedBeamGeometry = CurvedBeamModel.CurvedBeamGeometry;
+            Setdata();
+            CreateCommand = new RelayCommand(CreateRebar);
+
+        }
+   
+        public void Setdata()
+        {
+            MainTop = RebarData.BarDiameters.FirstOrDefault();
+            MainBot = RebarData.BarDiameters.FirstOrDefault();
+            MainBotNumber = Numbers.FirstOrDefault();
+            MainTopNumber = Numbers.FirstOrDefault();
+            HookXBot = 25;
+            HookYBot = 25;
+            HookXTop = 25;
+            HookYTop = 25;
+            Cover = 25;
+            
+        }
+
+      
+        public void CreateRebar(object obj)
+        {
+            if (obj is Window window)
+            {
+                window.Close();
+
+                ZLayer1Top = CurvedBeamGeometry.TopElevation - Cover.MmToFoot();
+                ZLayer2Top = CurvedBeamGeometry.TopElevation - 2* Cover.MmToFoot();
+                ZLayer1Bot = CurvedBeamGeometry.TopElevation + Cover.MmToFoot();
+                ZLayer2Bot = CurvedBeamGeometry.TopElevation + 2* Cover.MmToFoot();
+
+
+                using (Transaction tx = new Transaction(AC.Document, "Create Free Form Rebar"))
+                {
+                    tx.Start();
+
+                    // 1. Lấy thông tin cơ bản
+                    Curve beamCurve = CurvedBeamModel.CurveBeam;
+                    XYZ beamStart = beamCurve.GetEndPoint(0);
+                    XYZ beamEnd = beamCurve.GetEndPoint(1);
+
+
+                    // Điểm uốn giữa
+                    XYZ midPoint1 = beamStart + (beamEnd - beamStart) * 0.3;
+                    XYZ midPoint2 = beamEnd - (beamEnd - beamStart) * 0.3;
+
+
+                    var hooks = new FilteredElementCollector(AC.Document).OfClass(typeof(RebarHookType))
+                        .Cast<RebarHookType>().ToList();
+                    // 4. Lấy RebarShape phù hợp (hoặc dùng shape có sẵn)
+                    var hookStart = hooks
+                        .FirstOrDefault(x => x.Name.Contains("Standard - 90 deg"));
+                    var hookEnd = hooks
+                        .FirstOrDefault(x => x.Name.Contains("Standard - 90 deg"));
+
+                    var shapes = new FilteredElementCollector(AC.Document).OfClass(typeof(RebarShape))
+                        .Cast<RebarShape>().ToList();
+                    // 4. Lấy RebarShape phù hợp (hoặc dùng shape có sẵn)
+                    RebarShape shape = shapes
+                        .FirstOrDefault(x => x.Name.Contains("Rebar Shape 7"));
+                    ElementId endTreatmentTypeIdAtStart = ElementId.InvalidElementId;
+
+                    double rotateAngle = -Math.PI / 2; // Góc xoay nếu cần thiết
+                    List<Curve> curves = new List<Curve>();
+
+
+                    curves = ExtendCurveInXYPlane(AC.Document, CurvedBeamGeometry.BeamCurved, HookXBot.MmToFoot(),ZLayer1Top);
+                    
+                    // 5. Tạo rebar tự do
+                    Rebar freeFormRebar = Rebar.CreateFromCurves(
+                        AC.Document,
+                        RebarStyle.Standard,
+                        MainTop, // RebarBarType
+                        hookStart, // Không dùng hook start
+                        hookEnd, // Không dùng hook end
+                        BeamEle, // Host element (beam)
+                        XYZ.BasisZ, // Normal vector (vuông góc với mặt phẳng đặt thép)
+                        curves,
+                        RebarHookOrientation.Left,
+                        RebarHookOrientation.Left,
+                        rotateAngle,
+                        rotateAngle,
+                        endTreatmentTypeIdAtStart,
+                        endTreatmentTypeIdAtStart,
+                        false,
+                        true);
+                    tx.Commit();
+                }
+
+            }
+        }
+        public List<Curve> ExtendCurveInXYPlane(Document doc, Curve beamCurve, double extensionLength, double Zlayer)
+        {
+            List<Curve> curves = new List<Curve>();
+
+            // Lấy điểm đầu và cuối gốc
+            XYZ startPoint = beamCurve.GetEndPoint(0);
+            XYZ endPoint = beamCurve.GetEndPoint(1);
+            
+            // Tính tiếp tuyến tại đầu và cuối
+            Transform startDerivatives = beamCurve.ComputeDerivatives(0.0, true);
+            Transform endDerivatives = beamCurve.ComputeDerivatives(1.0, true);
+
+            XYZ tangentStart = startDerivatives.BasisX.Normalize();
+            XYZ tangentEnd = endDerivatives.BasisX.Normalize();
+
+            // Làm phẳng tiếp tuyến trong mặt phẳng XY
+            tangentStart = new XYZ(tangentStart.X, tangentStart.Y, 0).Normalize();
+            tangentEnd = new XYZ(tangentEnd.X, tangentEnd.Y, 0).Normalize();
+
+            // Làm phẳng các điểm trong mặt phẳng XY
+            startPoint = new XYZ(startPoint.X, startPoint.Y, 0);
+            endPoint = new XYZ(endPoint.X, endPoint.Y, 0);
+
+            // Tính điểm mới để mở rộng
+            XYZ newStart = startPoint - tangentStart * extensionLength;
+            XYZ newEnd = endPoint + tangentEnd * extensionLength;
+
+            // Tạo đoạn đầu mở rộng
+            Line extensionStart = Line.CreateBound(newStart, startPoint);
+
+            // Tạo đoạn cuối mở rộng
+            Line extensionEnd = Line.CreateBound(endPoint, newEnd);
+            XYZ translationVector = new XYZ(0, 0, Zlayer);
+            // Ghép nối: đoạn đầu + curve gốc + đoạn cuối
+            curves.Add(extensionStart.CreateTransformed(Transform.CreateTranslation(translationVector)));
+            curves.Add(beamCurve.CreateTransformed(Transform.CreateTranslation(translationVector)));
+            curves.Add(extensionEnd.CreateTransformed(Transform.CreateTranslation(translationVector)));
+
+            return curves;
+        }
+
+
+    }
+}

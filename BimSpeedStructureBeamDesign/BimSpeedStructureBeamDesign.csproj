@@ -114,23 +114,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="BeamRebarCutShop\View\Images\Cut2Ends.png" />
-		<None Remove="BeamRebarCutShop\View\Images\CutMid.png" />
-		<None Remove="BeamRebar\View\Images\Asset 23.png" />
-		<None Remove="BeamRebar\View\Images\Asset 25.png" />
-		<None Remove="BeamRebar\View\Images\Asset 67.png" />
-		<None Remove="BeamRebar\View\Images\Buttons\selection.png" />
-		<None Remove="BeamRebar\View\Images\GiaCuongBung1.png" />
-		<None Remove="BeamRebar\View\Images\GiaCuongBung2.png" />
-		<None Remove="BeamRebar\View\Images\Rounding.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\C135135.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\C180180.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\C90135.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\DistanceStirrupToEnd.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\mainstirrup1.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\mainstirrup2.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\StirrupShapeType.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\S_U_135_135.png" />
+		<None Remove="CurvedBeamRebar\Views\Matcat.png" />
+		<None Remove="CurvedBeamRebar\Views\neothep.png" />
 		<None Remove="Resources\Icons\about.png" />
 		<None Remove="Resources\Icons\about16.png" />
 		<None Remove="Resources\Icons\auto.png" />
@@ -170,101 +155,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="BeamDrawing\Images\beam detail.PNG" />
-		<Resource Include="BeamDrawing\Images\beam detail.PNG" />
-		<None Remove="BeamDrawing\Images\beamsection.png" />
-		<Resource Include="BeamDrawing\Images\beamsection.png" />
-		<None Remove="BeamDrawing\View\beamdrawing-en.jpg" />
-		<Resource Include="BeamDrawing\View\beamdrawing-en.jpg" />
-		<None Remove="BeamDrawing\View\beamdrawing-jp.png" />
-		<Resource Include="BeamDrawing\View\beamdrawing-jp.png" />
-		<None Remove="BeamDrawing\View\beamdrawing-vn.jpg" />
-		<Resource Include="BeamDrawing\View\beamdrawing-vn.jpg" />
-		<None Remove="BeamRebar\View\Images\Settings\C-STIRRUP.png" />
-		<Resource Include="BeamRebarCutShop\View\Images\Cut2Ends.png" />
-		<Resource Include="BeamRebarCutShop\View\Images\CutMid.png" />
-		<Resource Include="BeamRebar\View\Images\Asset 23.png" />
-		<Resource Include="BeamRebar\View\Images\Asset 25.png" />
-		<Resource Include="BeamRebar\View\Images\Asset 67.png" />
-		<Resource Include="BeamRebar\View\Images\Buttons\selection.png" />
-		<Resource Include="BeamRebar\View\Images\GiaCuongBung1.png" />
-		<Resource Include="BeamRebar\View\Images\GiaCuongBung2.png" />
-		<Resource Include="BeamRebar\View\Images\Rounding.png" />
-		<Resource Include="BeamRebar\View\Images\Settings\C-STIRRUP.png" />
-		<None Remove="BeamRebar\View\Images\Settings\SPACER-BAR.png" />
-		<Resource Include="BeamRebar\View\Images\Settings\SPACER-BAR.png" />
-		<None Remove="BeamRebar\View\Images\Settings\TOP-ADD-BAR-EXTENSION.png" />
-		<Resource Include="BeamRebar\View\Images\Settings\TOP-ADD-BAR-EXTENSION.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\CStirrup.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\C135135.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\C180180.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\C90135.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\CStirrup.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\DaiPhanBoDeu.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\DaiPhanBoDeu.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\DaiPhanBoDeu1.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\DaiPhanBoDeu1.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\DaiPhanBoTapChung2.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\DaiPhanBoTapChung2.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\delete.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\delete.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\HangerBar.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\DistanceStirrupToEnd.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\HangerBar.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\hozbelthook.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\hozbelthook.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\rectangle.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\mainstirrup1.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\mainstirrup2.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\rectangle.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\RectangleStirrup.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\RectangleStirrup.png" />
-		<None Remove="BeamRebar\View\Images\Stirrups\verbelthook.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\StirrupShapeType.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\S_U_135_135.png" />
-		<Resource Include="BeamRebar\View\Images\Stirrups\verbelthook.png" />
-		<None Remove="BeamRebar\View\Images\Tabs\STIRRUP.png" />
-		<Resource Include="BeamRebar\View\Images\Tabs\STIRRUP.png" />
-		<None Remove="BeamRebar\View\Images\Tabs\TAB-ADD-REBAR-BOT.png" />
-		<Resource Include="BeamRebar\View\Images\Tabs\TAB-ADD-REBAR-BOT.png" />
-		<None Remove="BeamRebar\View\Images\Tabs\TAB-ADD-REBAR-TOP.png" />
-		<Resource Include="BeamRebar\View\Images\Tabs\TAB-ADD-REBAR-TOP.png" />
-		<None Remove="BeamRebar\View\Images\Tabs\TAB-MAIN-BOT.png" />
-		<Resource Include="BeamRebar\View\Images\Tabs\TAB-MAIN-BOT.png" />
-		<None Remove="BeamRebar\View\Images\Tabs\TAB-MAIN-TOP.png" />
-		<Resource Include="BeamRebar\View\Images\Tabs\TAB-MAIN-TOP.png" />
-		<None Remove="BeamRebar\View\Images\Tabs\ThepChongPhinh.png" />
-		<Resource Include="BeamRebar\View\Images\Tabs\ThepChongPhinh.png" />
-		<None Remove="BeamRebar\View\Images\ADD-BOT-BAR.png" />
-		<Resource Include="BeamRebar\View\Images\ADD-BOT-BAR.png" />
-		<None Remove="BeamRebar\View\Images\CatThepDam.png" />
-		<Resource Include="BeamRebar\View\Images\CatThepDam.png" />
-		<None Remove="BeamRebar\View\Images\ConKeThep.png" />
-		<Resource Include="BeamRebar\View\Images\ConKeThep.png" />
-		<None Remove="BeamRebar\View\Images\Cover.png" />
-		<Resource Include="BeamRebar\View\Images\Cover.png" />
-		<None Remove="BeamRebar\View\Images\Coverandistancelayer.png" />
-		<Resource Include="BeamRebar\View\Images\Coverandistancelayer.png" />
-		<None Remove="BeamRebar\View\Images\DaiGiacuong.png" />
-		<Resource Include="BeamRebar\View\Images\DaiGiacuong.png" />
-		<None Remove="BeamRebar\View\Images\MainBotReBarLxLy.png" />
-		<Resource Include="BeamRebar\View\Images\MainBotReBarLxLy.png" />
-		<None Remove="BeamRebar\View\Images\MainTopRebarLxLy.png" />
-		<Resource Include="BeamRebar\View\Images\MainTopRebarLxLy.png" />
-		<None Remove="BeamRebar\View\Images\neothep.png" />
-		<Resource Include="BeamRebar\View\Images\neothep.png" />
-		<None Remove="BeamRebar\View\Images\NhanThep.png" />
-		<Resource Include="BeamRebar\View\Images\NhanThep.png" />
-		<None Remove="BeamRebar\View\Images\QuickSetting.png" />
-		<Resource Include="BeamRebar\View\Images\QuickSetting.png" />
-		<None Remove="BeamRebar\View\Images\ThepDaiC.png" />
-		<Resource Include="BeamRebar\View\Images\ThepDaiC.png" />
-		<None Remove="BeamRebar\View\Images\thepvaibo.png" />
-		<Resource Include="BeamRebar\View\Images\thepvaibo.png" />
-		<None Remove="BeamRebar\View\Images\TOP-BAR-TYPE-1.png" />
-		<Resource Include="BeamRebar\View\Images\TOP-BAR-TYPE-1.png" />
-		<None Remove="BeamRebar\View\Images\TOP-BAR-TYPE-2.png" />
-		<Resource Include="BeamRebar\View\Images\TOP-BAR-TYPE-2.png" />
+		<Resource Include="CurvedBeamRebar\Views\Matcat.png" />
+		<Resource Include="CurvedBeamRebar\Views\neothep.png" />
 		<Resource Include="Resources\Icons\about.png" />
 		<Resource Include="Resources\Icons\about16.png" />
 		<Resource Include="Resources\Icons\auto.png" />
@@ -281,11 +173,6 @@
 		<Resource Include="Resources\Icons\login16.png" />
 		<Resource Include="Resources\Icons\sideplandim.png" />
 		<Resource Include="Resources\Icons\sideplandim16.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="BeamRebar\Model\DiagonalBeamModel\" />
-		<Folder Include="RebarShape2D\" />
 	</ItemGroup>
 
 	<ItemGroup>

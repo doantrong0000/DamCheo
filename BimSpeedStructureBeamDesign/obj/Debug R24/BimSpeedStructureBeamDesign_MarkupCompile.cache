@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;R24;Version2024;R20_OR_GREATER;R21_OR_GREATER;R22_OR_GREATER;R23_OR_GREATER;R24_OR_GREATER;DEBUG_R24;NETFRAMEWORK;NET48;
 
-28-712596293
+11-1925084049
 
-185955687344
+471820853948
 1871980248194
-BeamDrawing\View\BeamDrawingView.xaml;BeamPlanDim\View\BeamPlanDimView.xaml;BeamRebarCutShop\View\BeamRebarCutShopView.xaml;BeamRebarCutShop\View\CrackedBarUserControl.xaml;BeamRebarCutShop\View\LappedBarUserControl.xaml;BeamRebar\View\BarPositionView.xaml;BeamRebar\View\BeamRebarView2.xaml;BeamRebar\View\BeamRebarViewSetting.xaml;BeamRebar\View\ProgressBarWithStatusView.xaml;BeamRebar\View\QuickBeamRebarView.xaml;BeamRebar\View\SubViews\AddBotBarView.xaml;BeamRebar\View\SubViews\AddTopBarView.xaml;BeamRebar\View\SubViews\GeometryView.xaml;BeamRebar\View\SubViews\MainBotBarView.xaml;BeamRebar\View\SubViews\MainTopBarView.xaml;BeamRebar\View\SubViews\StirrupBarView.xaml;BeamRebar\View\SubViews\ThepChongPhinhView.xaml;BeamSectionGenerator\View\BeamSectionGeneratorView.xaml;Resources\ResourceString.en.xaml;Resources\ResourceString.jp.xaml;Resources\ResourceString.sp.xaml;Resources\ResourceString.vn.xaml;Utils\ResourceDicrectory\ButtonStyle2.xaml;Utils\ResourceDicrectory\CheckBoxStyle.xaml;Utils\ResourceDicrectory\GroupBoxStyle2.xaml;Utils\ResourceDicrectory\RadioButtonStyle2.xaml;Utils\ResourceDicrectory\Style.xaml;Utils\View\SheetFinderView.xaml;
+CurvedBeamRebar\Views\CurvedBeamView.xaml;Resources\ResourceString.en.xaml;Resources\ResourceString.jp.xaml;Resources\ResourceString.sp.xaml;Resources\ResourceString.vn.xaml;Utils\ResourceDicrectory\ButtonStyle2.xaml;Utils\ResourceDicrectory\CheckBoxStyle.xaml;Utils\ResourceDicrectory\GroupBoxStyle2.xaml;Utils\ResourceDicrectory\RadioButtonStyle2.xaml;Utils\ResourceDicrectory\Style.xaml;Utils\View\SheetFinderView.xaml;
 
 False
 

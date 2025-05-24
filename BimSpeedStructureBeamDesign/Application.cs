@@ -1,13 +1,8 @@
 ﻿using System.IO;
 using Autodesk.Revit.UI;
 using Serilog.Events;
-using BimSpeedStructureBeamDesign.BeamDrawing;
-using BimSpeedStructureBeamDesign.BeamPlanDim;
-using BimSpeedStructureBeamDesign.BeamRebar;
-using BimSpeedStructureBeamDesign.BeamSectionGenerator;
 using System.Reflection;
 using System.Windows.Media.Imaging;
-using BimSpeedStructureBeamDesign.BeamRebarCutShop;
 using BimSpeedUtils.BimSpeedToolKit;
 using BimSpeedUtils.PanelUtils;
 using BimSpeedUtils.RibbonUtils;
@@ -57,36 +52,6 @@ namespace BimSpeedStructureBeamDesign
          }
 
          //Add button
-         var buttonBeamDrawing = panel.AddPushButton<BeamDrawingCmd>("Beam Drawing");
-         buttonBeamDrawing.SetImage("/BimSpeedStructureBeamDesign;component/Resources/Icons/beamdrawing16.png");
-         buttonBeamDrawing.SetLargeImage("/BimSpeedStructureBeamDesign;component/Resources/Icons/beamdrawing.png");
-
-         var beamDetail = new PushButtonData(typeof(BeamDetailCmd).FullName, "Beam Detail", Assembly.GetAssembly(typeof(BeamDetailCmd)).Location, typeof(BeamDetailCmd).FullName);
-         beamDetail.Image = new BitmapImage(new Uri(pathIcons + "beamsection16.png", UriKind.RelativeOrAbsolute));
-         beamDetail.LargeImage = new BitmapImage(new Uri(pathIcons + "beamsection.png", UriKind.RelativeOrAbsolute));
-
-         var beamSection = new PushButtonData(typeof(BeamSectionCmd).FullName, "Beam Section", Assembly.GetAssembly(typeof(BeamSectionCmd)).Location, typeof(BeamSectionCmd).FullName);
-         beamSection.Image = new BitmapImage(new Uri(pathIcons + "beamsection16.png", UriKind.RelativeOrAbsolute));
-         beamSection.LargeImage = new BitmapImage(new Uri(pathIcons + "beamsection.png", UriKind.RelativeOrAbsolute));
-
-         panel.AddStackedItems(beamDetail, beamSection);
-
-         var buttonBeamPlanDim = panel.AddPushButton<BeamPlanDimCmd>("Beam Plan Dim");
-         buttonBeamPlanDim.SetImage(pathIcons + "sideplandim16.png");
-         buttonBeamPlanDim.SetLargeImage(pathIcons + "sideplandim.png");
-
-         var buttonBeamRebar = panel.AddPushButton<BeamRebarCmd>("Beam Rebar");
-         buttonBeamRebar.SetImage(pathIcons + "beamrebar16.png");
-         buttonBeamRebar.SetLargeImage(pathIcons + "beamrebar.png");
-
-
-         var buttonCutThep = panel.AddPushButton<BeamRebarCutShopCmd>("Beam Rebar Shop");
-         buttonCutThep.SetImage(pathIcons + "beamrebar16.png");
-         buttonCutThep.SetLargeImage(pathIcons + "beamrebar.png");
-
-         var buttonBeamRebarSectionGenerator = panel.AddPushButton<BeamSectionGeneratorCmd>("Beam Section Generator");
-         buttonBeamRebarSectionGenerator.SetImage(pathIcons + "auto16.png");
-         buttonBeamRebarSectionGenerator.SetLargeImage(pathIcons + "auto.png");
       }
 
       private static void CreateLogger()

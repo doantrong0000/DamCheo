@@ -1,0 +1,493 @@
+﻿<Window x:Class="BimSpeedStructureBeamDesign.CurvedBeamRebar.Views.CurvedBeamView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BimSpeedStructureBeamDesign.CurvedBeamRebar.Views"
+        xmlns:wpfUtils="clr-namespace:BimSpeedUtils.WPFUtils;assembly=BimSpeedUtils"
+        xmlns:converters="clr-namespace:BimSpeedUtils.WPFUtils.Converters;assembly=BimSpeedUtils"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:viewModels="clr-namespace:BimSpeedStructureBeamDesign.CurvedBeamRebar.ViewModels"
+        d:DataContext="{d:DesignInstance viewModels:CurvedBeamViewModel, IsDesignTimeCreatable=True}"
+        Name="MainView"
+        Title="Curved Beam Rebar View" Height="Auto" Width="Auto"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/BimSpeedStructureBeamDesign;component/Resources/ResourceString.en.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/BimSpeedUtils;component/WPFUtils/ResourceDictionaries/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style BasedOn="{StaticResource ResourceKey=ButtonStyle}" TargetType="Button" />
+            <Style BasedOn="{StaticResource ResourceKey=CheckBoxStyle}" TargetType="CheckBox" />
+            <Style BasedOn="{StaticResource ResourceKey=RadioButtonStyle}" TargetType="RadioButton" />
+            <Style BasedOn="{StaticResource ResourceKey=GroupBoxStyle}" TargetType="GroupBox" />
+            <Style BasedOn="{StaticResource ResourceKey=ComboBoxStyle}" TargetType="ComboBox" />
+            <!--<Style TargetType="ToggleButton" BasedOn="{StaticResource ResourceKey=ToggleButtonStyle}" />-->
+            <Style BasedOn="{StaticResource ResourceKey=TextBoxStyle}" TargetType="TextBox" />
+            <Style BasedOn="{StaticResource ResourceKey=ProgressBarStyle}" TargetType="ProgressBar" />
+            <Style TargetType="{x:Type TabControl}">
+                <Setter Property="Padding" Value="10,5,10,5" />
+                <Setter Property="Margin" Value="3.5" />
+            </Style>
+            <!--  Tab item styling  -->
+            <Style TargetType="{x:Type TabItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TabItem}">
+                            <Grid>
+                                <Border
+                                Name="Border"
+                                MinWidth="120"
+                                Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+                                BorderBrush="Black"
+                                BorderThickness="1,1,1,0"
+                                CornerRadius="3,3,0,0">
+                                    <ContentPresenter
+                                    x:Name="ContentSite"
+                                    Margin="12,2,12,2"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    ContentSource="Header" />
+                                </Border>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" />
+                                    <Setter Property="HeaderTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock FontWeight="Bold" Text="{Binding}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" />
+                                    <Setter Property="HeaderTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock FontWeight="Bold" Text="{Binding}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" />
+                                    <Setter Property="HeaderTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <TextBlock FontWeight="Bold" Text="{Binding}" />
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <converters:RadioBoolToIntConverter x:Key="RadioBoolToIntConverter"></converters:RadioBoolToIntConverter>
+            <converters:IntToStringConverter x:Key="IntToStringConverter"></converters:IntToStringConverter>
+            <converters:FeetToIntString x:Key="FeetToIntString" />
+            <converters:RevitDiameterToStringConverter x:Key="RevitDiameterToStringConverter"></converters:RevitDiameterToStringConverter>
+        </ResourceDictionary>
+    </Window.Resources>
+        <StackPanel Margin="2">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="620">
+
+                </ColumnDefinition>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical"
+                        Margin="6">
+
+                <Grid Width="600"
+                      HorizontalAlignment="Left">
+                    <Image VerticalAlignment="Top"
+                           Margin="0 60 0 0"
+                           HorizontalAlignment="Left"
+                           Height="400"
+                           Source="Matcat.png" />
+
+                    <StackPanel Orientation="Vertical"
+                                VerticalAlignment="Top"
+                                Margin="290,7,0,0">
+                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK1}"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="CbAdditionalTopBar"
+                                      Width="30"
+                                      IsChecked="{Binding CheckFillTop}" />
+                            <ComboBox
+                                IsEnabled="{Binding ElementName=CbAdditionalTopBar,Path=IsChecked}"
+                                ItemsSource="{Binding FillNumbers}"
+                                SelectedItem="{Binding Setting.AddTop1}"
+                                Width="50">
+                            </ComboBox>
+
+                            <TextBlock>
+                                <Run Text="x" />
+                            </TextBlock>
+
+                            <ComboBox
+                                IsEnabled="{Binding ElementName=CbAdditionalTopBar,Path=IsChecked}"
+                                ItemsSource="{Binding RebarData.BarDiameters}"
+                                Width="50"
+                                SelectedItem="{Binding FillTop}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+                        </StackPanel>
+                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK2}"></TextBlock>
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Top">
+                            <ComboBox ItemsSource="{Binding Numbers}"
+                                      Width="50"
+                                      SelectedItem="{Binding MainTopNumber}" />
+                            <TextBlock>
+                                <Run Text="x" />
+                            </TextBlock>
+
+                            <ComboBox ItemsSource="{Binding RebarData.BarDiameters}"
+                                      SelectedItem="{Binding MainTop}"
+                                      Width="50">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+                        </StackPanel>
+                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK3}"></TextBlock>
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Top">
+
+                            <CheckBox Name="CbAdditionalTopBar2"
+                                      Width="30"
+                                      VerticalContentAlignment="Center"
+                                      IsChecked="{Binding CheckFill2Top}">
+                            </CheckBox>
+
+                            <ComboBox
+                                IsEnabled="{Binding ElementName=CbAdditionalTopBar2,Path=IsChecked}"
+                                ItemsSource="{Binding Numbers}"
+                                SelectedItem="{Binding Layer2TopNumber}"
+                                Width="50">
+                            </ComboBox>
+
+                            <TextBlock>
+                                <Run Text="x" />
+                            </TextBlock>
+
+                            <ComboBox
+                                IsEnabled="{Binding ElementName=CbAdditionalTopBar2,Path=IsChecked}"
+                                ItemsSource="{Binding RebarData.BarDiameters}"
+                                SelectedItem="{Binding Layer2Top}"
+                                Width="50">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK4}"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Name="CbAdditionalBottomBar2"
+                                      Width="30"
+                                      IsChecked="{Binding CheckFill2Bot}">
+                            </CheckBox>
+
+                            <ComboBox
+                                IsEnabled="{Binding ElementName=CbAdditionalBottomBar2,Path=IsChecked}"
+                                ItemsSource="{Binding Numbers}"
+                                SelectedItem="{Binding Layer2BotNumber}"
+                                Width="50">
+                            </ComboBox>
+
+                            <TextBlock>
+                                <Run Text="x" />
+                            </TextBlock>
+
+                            <ComboBox
+                                IsEnabled="{Binding ElementName=CbAdditionalBottomBar2,Path=IsChecked}"
+                                ItemsSource="{Binding RebarData.BarDiameters}"
+                                SelectedItem="{Binding Setting.BotAdditionBarDiameter2}"
+                                Width="50">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK5}"></TextBlock>
+
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox ItemsSource="{Binding RebarData.BarDiameters}"
+                                      SelectedItem="{Binding Setting.StirrupBarDiameter}"
+                                      Height="24"
+                                      Width="49">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton
+                                        IsChecked="{Binding Setting.KieuBoTriThepDai,Converter={StaticResource RadioBoolToIntConverter},ConverterParameter=1}"
+                                        VerticalAlignment="Top" />
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>A1 :</TextBlock>
+
+                                        <TextBox
+                                            Text="{Binding Setting.A1,Converter={StaticResource IntToStringConverter}}"
+                                            Width="50"
+                                            Height="24" />
+
+                                        <TextBlock> L :</TextBlock>
+                                        <TextBox Width="49"
+                                                 Height="26"
+                                                 Text="{Binding Setting.L, Converter={StaticResource FeetToIntString}}"
+                                                 IsEnabled="{Binding IsChecked, ElementName=CbStirrup}" />
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton
+                                        IsChecked="{Binding Setting.KieuBoTriThepDai,Converter={StaticResource RadioBoolToIntConverter},ConverterParameter=2}"
+                                        VerticalAlignment="Top" />
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock>A1 :</TextBlock>
+                                        <TextBox
+                                            Text="{Binding Setting.A1,Converter={StaticResource IntToStringConverter}}"
+                                            Width="50"
+                                            Height="25" />
+
+                                        <TextBlock>A2 :</TextBlock>
+                                        <TextBox
+                                            Text="{Binding Setting.A2, Converter={StaticResource IntToStringConverter}}"
+                                            Width="50"
+                                            Height="24" />
+                                    </StackPanel>
+                                </StackPanel>
+
+                            </StackPanel>
+                        </StackPanel>
+
+                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK6}"></TextBlock>
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Top">
+                            <ComboBox ItemsSource="{Binding Numbers}"
+                                      Width="50"
+                                      SelectedItem="{Binding MainBotNumber}" />
+
+                            <TextBlock>
+                                <Run Text="x" />
+                            </TextBlock>
+                            <ComboBox ItemsSource="{Binding RebarData.BarDiameters}"
+                                      SelectedItem="{Binding MainBot}"
+                                      Width="50">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK7}"></TextBlock>
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Top">
+                            <CheckBox x:Name="CbAdditionalBottomBar1"
+                                      Width="30"
+                                      IsChecked="{Binding CheckFillBot}"
+                                      VerticalAlignment="Top" />
+                            <ComboBox
+                                IsEnabled="{Binding ElementName=CbAdditionalBottomBar1,Path=IsChecked}"
+                                ItemsSource="{Binding FillNumbers}"
+                                SelectedItem="{Binding FillBotNumber}"
+                                Width="50">
+                            </ComboBox>
+                            <TextBlock>
+                                <Run Text="x" />
+                            </TextBlock>
+
+                            <ComboBox
+                                IsEnabled="{Binding ElementName=CbAdditionalBottomBar1,Path=IsChecked}"
+                                ItemsSource="{Binding RebarData.BarDiameters}"
+                                Width="50"
+                                SelectedItem="{Binding FillBot}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <DockPanel Grid.Column="1">
+                <StackPanel Orientation="Horizontal"
+                            DockPanel.Dock="Bottom"
+                            Height="40"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right">
+
+
+                    <Button Command="{Binding  CreateCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                            Height="25"
+                            Width="150"
+                            Margin="2,2,2,2"
+                            Content="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_BUTTON2}" />
+                    <Button Margin="2,2,2,2"
+                            Height="25"
+                            Width="80"
+                            IsCancel="True"
+                            Content="{DynamicResource COMMON_BUTTON_CLOSE}" Click="Button_Click" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical"
+                            DockPanel.Dock="Top">
+                    <Image VerticalAlignment="Top"
+                           Margin="30 0 10 0"
+                           Height="250"
+                           Source="neothep.png" />
+                    <Grid HorizontalAlignment="Stretch" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="80" />
+                       
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+         Grid.Row="0"
+         Grid.Column="0"
+         Text="x1 = " />
+                        <TextBlock
+         Grid.Row="1"
+         Grid.Column="0"
+         Text="y1 = " />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Text="x2 = " />
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Text="y2 = " />
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Text="Cover = " />
+                        <TextBox
+         Grid.Row="0"
+         Grid.Column="1"
+         Width="60"
+         Height="28"
+         Panel.ZIndex="1"
+         BorderBrush="Black"
+         BorderThickness="1"
+         Text="{Binding HookXTop}" />
+                        <TextBox
+         Grid.Row="1"
+         Grid.Column="1"
+         Width="60"
+         Height="28"
+         Panel.ZIndex="1"
+         BorderBrush="Black"
+         BorderThickness="1"
+         Text="{Binding HookYTop}" />
+                        <TextBox
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Width="60"
+                            Height="28"
+                            Panel.ZIndex="1"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            Text="{Binding HookXBot}" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Width="60"
+                            Height="28"
+                            Panel.ZIndex="1"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            Text="{Binding HookYBot}" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Width="60"
+                            Height="28"
+                            Panel.ZIndex="1"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            Text="{Binding Cover}" />
+                    </Grid>
+                </StackPanel>
+            </DockPanel>
+        </Grid>
+
+        <CheckBox Visibility="Collapsed"
+                  Margin="5,0,0,0"
+                  Height="22"
+                  VerticalContentAlignment="Center"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  Content="{DynamicResource BEAMREBAR_BEAMREBARVIEW1_TAODAMDANGMATCAT}" />
+
+    </StackPanel>
+</Window>

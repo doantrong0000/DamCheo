@@ -4,17 +4,17 @@
 library
 C#
 .cs
-D:\2_Code_Trong\revit.bimspeed.structure.beam\BimSpeedStructureBeamDesign\obj\Debug R18\
+C:\CODE_CTY\DamCheo\BimSpeedStructureBeamDesign\obj\Debug R18\
 BimSpeedStructureBeamDesign
 none
 false
 TRACE;DEBUG;R18;Version2018;R18_OR_GREATER;DEBUG_R18;NETFRAMEWORK;NET48;
 
-28-712596293
+11-1925084049
 
-184-1220091056
-1722046527775
-BeamDrawing\View\BeamDrawingView.xaml;BeamPlanDim\View\BeamPlanDimView.xaml;BeamRebarCutShop\View\BeamRebarCutShopView.xaml;BeamRebarCutShop\View\CrackedBarUserControl.xaml;BeamRebarCutShop\View\LappedBarUserControl.xaml;BeamRebar\View\BarPositionView.xaml;BeamRebar\View\BeamRebarView2.xaml;BeamRebar\View\BeamRebarViewSetting.xaml;BeamRebar\View\ProgressBarWithStatusView.xaml;BeamRebar\View\QuickBeamRebarView.xaml;BeamRebar\View\SubViews\AddBotBarView.xaml;BeamRebar\View\SubViews\AddTopBarView.xaml;BeamRebar\View\SubViews\GeometryView.xaml;BeamRebar\View\SubViews\MainBotBarView.xaml;BeamRebar\View\SubViews\MainTopBarView.xaml;BeamRebar\View\SubViews\StirrupBarView.xaml;BeamRebar\View\SubViews\ThepChongPhinhView.xaml;BeamSectionGenerator\View\BeamSectionGeneratorView.xaml;Resources\ResourceString.en.xaml;Resources\ResourceString.jp.xaml;Resources\ResourceString.sp.xaml;Resources\ResourceString.vn.xaml;Utils\ResourceDicrectory\ButtonStyle2.xaml;Utils\ResourceDicrectory\CheckBoxStyle.xaml;Utils\ResourceDicrectory\GroupBoxStyle2.xaml;Utils\ResourceDicrectory\RadioButtonStyle2.xaml;Utils\ResourceDicrectory\Style.xaml;Utils\View\SheetFinderView.xaml;
+49-1167558419
+1721883561716
+CurvedBeamRebar\Views\CurvedBeamView.xaml;Resources\ResourceString.en.xaml;Resources\ResourceString.jp.xaml;Resources\ResourceString.sp.xaml;Resources\ResourceString.vn.xaml;Utils\ResourceDicrectory\ButtonStyle2.xaml;Utils\ResourceDicrectory\CheckBoxStyle.xaml;Utils\ResourceDicrectory\GroupBoxStyle2.xaml;Utils\ResourceDicrectory\RadioButtonStyle2.xaml;Utils\ResourceDicrectory\Style.xaml;Utils\View\SheetFinderView.xaml;
 
-False
+True
 

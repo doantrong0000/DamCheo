@@ -159,40 +159,42 @@ namespace BimSpeedStructureBeamDesign.CurvedBeamRebar.ViewModels
             // Lấy điểm đầu và cuối gốc
             XYZ startPoint = beamCurve.GetEndPoint(0);
             XYZ endPoint = beamCurve.GetEndPoint(1);
-            
-            // Tính tiếp tuyến tại đầu và cuối
+
+            // Tính tiếp tuyến tại hai đầu (dựa trên đạo hàm của đường cong)
             Transform startDerivatives = beamCurve.ComputeDerivatives(0.0, true);
             Transform endDerivatives = beamCurve.ComputeDerivatives(1.0, true);
 
             XYZ tangentStart = startDerivatives.BasisX.Normalize();
             XYZ tangentEnd = endDerivatives.BasisX.Normalize();
 
-            // Làm phẳng tiếp tuyến trong mặt phẳng XY
+            // Đưa tiếp tuyến về mặt phẳng XY (Z = 0)
             tangentStart = new XYZ(tangentStart.X, tangentStart.Y, 0).Normalize();
             tangentEnd = new XYZ(tangentEnd.X, tangentEnd.Y, 0).Normalize();
 
-            // Làm phẳng các điểm trong mặt phẳng XY
-            startPoint = new XYZ(startPoint.X, startPoint.Y, 0);
-            endPoint = new XYZ(endPoint.X, endPoint.Y, 0);
+            // Đưa các điểm về mặt phẳng Zlayer
+            startPoint = new XYZ(startPoint.X, startPoint.Y, Zlayer);
+            endPoint = new XYZ(endPoint.X, endPoint.Y, Zlayer);
 
-            // Tính điểm mới để mở rộng
+            // Tính điểm mở rộng mới
             XYZ newStart = startPoint - tangentStart * extensionLength;
             XYZ newEnd = endPoint + tangentEnd * extensionLength;
 
-            // Tạo đoạn đầu mở rộng
+            // Tạo các đoạn mở rộng (luôn là Line)
             Line extensionStart = Line.CreateBound(newStart, startPoint);
-
-            // Tạo đoạn cuối mở rộng
             Line extensionEnd = Line.CreateBound(endPoint, newEnd);
-            XYZ translationVector = new XYZ(0, 0, Zlayer);
-            // Ghép nối: đoạn đầu + curve gốc + đoạn cuối
-            curves.Add(extensionStart.CreateTransformed(Transform.CreateTranslation(translationVector)));
-            curves.Add(beamCurve.CreateTransformed(Transform.CreateTranslation(translationVector)));
-            curves.Add(extensionEnd.CreateTransformed(Transform.CreateTranslation(translationVector)));
+
+            // Dịch chuyển toàn bộ curve gốc về cao độ Zlayer
+            double offsetZ = Zlayer - beamCurve.GetEndPoint(0).Z;
+            Transform moveToZ = Transform.CreateTranslation(new XYZ(0, 0, offsetZ));
+            Curve movedBeamCurve = beamCurve.CreateTransformed(moveToZ);
+
+            // Thêm vào danh sách
+            curves.Add(extensionStart);
+            curves.Add(movedBeamCurve);
+            curves.Add(extensionEnd);
 
             return curves;
         }
-
 
     }
 }

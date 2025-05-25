@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -9,6 +10,7 @@ using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using BimSpeedStructureBeamDesign.BeamRebar.Model;
 using BimSpeedStructureBeamDesign.CurvedBeamRebar.Models;
+using BimSpeedStructureBeamDesign.CurvedBeamRebar.Models.RebarModels;
 using BimSpeedStructureBeamDesign.CurvedBeamRebar.Views;
 using BimSpeedUtils;
 
@@ -101,58 +103,26 @@ namespace BimSpeedStructureBeamDesign.CurvedBeamRebar.ViewModels
                     Curve beamCurve = CurvedBeamModel.CurveBeam;
                     XYZ beamStart = beamCurve.GetEndPoint(0);
                     XYZ beamEnd = beamCurve.GetEndPoint(1);
-
-
-                    // Điểm uốn giữa
-                    XYZ midPoint1 = beamStart + (beamEnd - beamStart) * 0.3;
-                    XYZ midPoint2 = beamEnd - (beamEnd - beamStart) * 0.3;
-
-
-                    var hooks = new FilteredElementCollector(AC.Document).OfClass(typeof(RebarHookType))
-                        .Cast<RebarHookType>().ToList();
-                    // 4. Lấy RebarShape phù hợp (hoặc dùng shape có sẵn)
-                    var hookStart = hooks
-                        .FirstOrDefault(x => x.Name.Contains("Standard - 90 deg"));
-                    var hookEnd = hooks
-                        .FirstOrDefault(x => x.Name.Contains("Standard - 90 deg"));
-
-                    var shapes = new FilteredElementCollector(AC.Document).OfClass(typeof(RebarShape))
-                        .Cast<RebarShape>().ToList();
-                    // 4. Lấy RebarShape phù hợp (hoặc dùng shape có sẵn)
-                    RebarShape shape = shapes
-                        .FirstOrDefault(x => x.Name.Contains("Rebar Shape 7"));
-                    ElementId endTreatmentTypeIdAtStart = ElementId.InvalidElementId;
-
-                    double rotateAngle = -Math.PI / 2; // Góc xoay nếu cần thiết
                     List<Curve> curves = new List<Curve>();
 
 
-                    curves = ExtendCurveInXYPlane(AC.Document, CurvedBeamGeometry.BeamCurved, HookXBot.MmToFoot(),ZLayer1Top);
-                    
-                    // 5. Tạo rebar tự do
-                    Rebar freeFormRebar = Rebar.CreateFromCurves(
-                        AC.Document,
-                        RebarStyle.Standard,
-                        MainTop, // RebarBarType
-                        hookStart, // Không dùng hook start
-                        hookEnd, // Không dùng hook end
-                        BeamEle, // Host element (beam)
-                        XYZ.BasisZ, // Normal vector (vuông góc với mặt phẳng đặt thép)
-                        curves,
-                        RebarHookOrientation.Left,
-                        RebarHookOrientation.Left,
-                        rotateAngle,
-                        rotateAngle,
-                        endTreatmentTypeIdAtStart,
-                        endTreatmentTypeIdAtStart,
-                        false,
-                        true);
+                    double offset = CurvedBeamGeometry.Width/2 - Cover.MmToFoot();
+                    double extensionLength = HookXTop.MmToFoot();
+
+                    Curve offsetLeft = beamCurve.CreateOffset(offset, XYZ.BasisZ); // lệch trái
+                    curves = ExtendCurveInXYPlane(offsetLeft, extensionLength, ZLayer1Top);
+                    CreateTopRebar(curves);
+
+                    List<Curve> curves2 = new List<Curve>();
+                    Curve offsetRight = beamCurve.CreateOffset(-offset, XYZ.BasisZ); // lệch phải
+                    curves2 = ExtendCurveInXYPlane(offsetRight, extensionLength, ZLayer1Top);
+                    CreateTopRebar(curves2);
                     tx.Commit();
                 }
 
             }
         }
-        public List<Curve> ExtendCurveInXYPlane(Document doc, Curve beamCurve, double extensionLength, double Zlayer)
+        public List<Curve> ExtendCurveInXYPlane( Curve beamCurve, double extensionLength, double Zlayer)
         {
             List<Curve> curves = new List<Curve>();
 
@@ -195,6 +165,43 @@ namespace BimSpeedStructureBeamDesign.CurvedBeamRebar.ViewModels
 
             return curves;
         }
+        public void CreateTopRebar (List<Curve> curves)
+        {
+            var hooks = new FilteredElementCollector(AC.Document).OfClass(typeof(RebarHookType))
+                      .Cast<RebarHookType>().ToList();
+            // 4. Lấy RebarShape phù hợp (hoặc dùng shape có sẵn)
+            var hookStart = hooks
+                .FirstOrDefault(x => x.Name.Contains("Standard - 90 deg"));
+            var hookEnd = hooks
+                .FirstOrDefault(x => x.Name.Contains("Standard - 90 deg"));
 
+            var shapes = new FilteredElementCollector(AC.Document).OfClass(typeof(RebarShape))
+                .Cast<RebarShape>().ToList();
+            // 4. Lấy RebarShape phù hợp (hoặc dùng shape có sẵn)
+            RebarShape shape = shapes
+                .FirstOrDefault(x => x.Name.Contains("Rebar Shape 7"));
+            ElementId endTreatmentTypeIdAtStart = ElementId.InvalidElementId;
+
+            double rotateAngle = -Math.PI / 2; // Góc xoay nếu cần thiết
+
+            // 5. Tạo rebar tự do
+            Rebar freeFormRebar = Rebar.CreateFromCurves(
+                AC.Document,
+                RebarStyle.Standard,
+                MainTop, // RebarBarType
+                hookStart, // Không dùng hook start
+                hookEnd, // Không dùng hook end
+                BeamEle, // Host element (beam)
+                XYZ.BasisZ, // Normal vector (vuông góc với mặt phẳng đặt thép)
+                curves,
+                RebarHookOrientation.Left,
+                RebarHookOrientation.Left,
+                rotateAngle,
+                rotateAngle,
+                endTreatmentTypeIdAtStart,
+                endTreatmentTypeIdAtStart,
+                false,
+                true);
+        }
     }
 }

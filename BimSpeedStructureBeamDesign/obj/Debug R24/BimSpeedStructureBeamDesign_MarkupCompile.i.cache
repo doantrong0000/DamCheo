@@ -16,5 +16,5 @@ TRACE;DEBUG;R24;Version2024;R20_OR_GREATER;R21_OR_GREATER;R22_OR_GREATER;R23_OR_
 1871980248194
 CurvedBeamRebar\Views\CurvedBeamView.xaml;Resources\ResourceString.en.xaml;Resources\ResourceString.jp.xaml;Resources\ResourceString.sp.xaml;Resources\ResourceString.vn.xaml;Utils\ResourceDicrectory\ButtonStyle2.xaml;Utils\ResourceDicrectory\CheckBoxStyle.xaml;Utils\ResourceDicrectory\GroupBoxStyle2.xaml;Utils\ResourceDicrectory\RadioButtonStyle2.xaml;Utils\ResourceDicrectory\Style.xaml;Utils\View\SheetFinderView.xaml;
 
-False
+True
 

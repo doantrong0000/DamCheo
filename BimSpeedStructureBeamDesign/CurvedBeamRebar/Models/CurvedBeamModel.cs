@@ -22,6 +22,7 @@ namespace BimSpeedStructureBeamDesign.CurvedBeamRebar.Models
         public double BotElevation { get; set; }
         public CurvedBeamGeometry CurvedBeamGeometry { get; set; }
         public Curve CurveBeam { get; set; }
+        public List<Solid> Solids { get; set; } = new List<Solid>();
 
         public CurvedBeamModel(FamilyInstance beam)
         {
@@ -41,7 +42,7 @@ namespace BimSpeedStructureBeamDesign.CurvedBeamRebar.Models
         
             var supports = columnSupports.Concat(beamSupports)
                 .Select(x => x.Solid).Where(x => x != null && x.Volume > 0.001).ToList();
-            CurveBeam = TrimCurveBySolids(CurvedBeamGeometry.BeamCurved, supports);
+            Solids = supports;
         }
         
         public static List<FamilyInstance> FilterLineBeam(List<FamilyInstance> beams)
@@ -64,62 +65,6 @@ namespace BimSpeedStructureBeamDesign.CurvedBeamRebar.Models
 
             return nonStraightBeams;
         }
-        public static Curve TrimCurveBySolids(Curve curve, List<Solid> solids)
-        {
-            if (solids == null || solids.Count == 0)
-            {
-                return curve;
-            }
 
-            // Gộp solids lại thành 1 solid duy nhất
-            Solid unionSolid = solids[0];
-            if (solids.Count > 1)
-            {
-                unionSolid = SolidUtils.Clone(unionSolid);
-                for (int i = 1; i < solids.Count; i++)
-                {
-                    try
-                    {
-                        BooleanOperationsUtils.ExecuteBooleanOperationModifyingOriginalSolid(
-                            unionSolid, solids[i], BooleanOperationsType.Union);
-                    }
-                    catch
-                    {
-                        // Bỏ qua nếu không union được
-                    }
-                }
-            }
-
-            // Lấy các đoạn nằm ngoài solid
-            SolidCurveIntersection intersection = unionSolid.IntersectWithCurve(
-                curve,
-                new SolidCurveIntersectionOptions
-                {
-                    ResultType = SolidCurveIntersectionMode.CurveSegmentsOutside
-                });
-
-            Curve longestCurve = null;
-            double maxLength = 0;
-
-            if (intersection != null && intersection.SegmentCount > 0)
-            {
-                for (int i = 0; i < intersection.SegmentCount; i++)
-                {
-                    Curve segment = intersection.GetCurveSegment(i);
-                    if (segment != null)
-                    {
-                        double len = segment.Length;
-                        if (len > maxLength)
-                        {
-                            maxLength = len;
-                            longestCurve = segment;
-                        }
-                    }
-                }
-            }
-
-            // Nếu không có đoạn nào nằm ngoài solid, trả về null
-            return longestCurve;
-        }
     }
 }

@@ -118,38 +118,8 @@
                     <StackPanel Orientation="Vertical"
                                 VerticalAlignment="Top"
                                 Margin="290,7,0,0">
-                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK1}"></TextBlock>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox x:Name="CbAdditionalTopBar"
-                                      Width="30"
-                                      IsChecked="{Binding CheckFillTop}" />
-                            <ComboBox
-                                IsEnabled="{Binding ElementName=CbAdditionalTopBar,Path=IsChecked}"
-                                ItemsSource="{Binding FillNumbers}"
-                                SelectedItem="{Binding Setting.AddTop1}"
-                                Width="50">
-                            </ComboBox>
 
-                            <TextBlock>
-                                <Run Text="x" />
-                            </TextBlock>
 
-                            <ComboBox
-                                IsEnabled="{Binding ElementName=CbAdditionalTopBar,Path=IsChecked}"
-                                ItemsSource="{Binding RebarData.BarDiameters}"
-                                Width="50"
-                                SelectedItem="{Binding FillTop}">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-
-                        </StackPanel>
                         <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK2}"></TextBlock>
                         <StackPanel Orientation="Horizontal"
                                     VerticalAlignment="Top">
@@ -220,7 +190,6 @@
                             </CheckBox>
 
                             <ComboBox
-                                IsEnabled="{Binding ElementName=CbAdditionalBottomBar2,Path=IsChecked}"
                                 ItemsSource="{Binding Numbers}"
                                 SelectedItem="{Binding Layer2BotNumber}"
                                 Width="50">
@@ -231,9 +200,8 @@
                             </TextBlock>
 
                             <ComboBox
-                                IsEnabled="{Binding ElementName=CbAdditionalBottomBar2,Path=IsChecked}"
                                 ItemsSource="{Binding RebarData.BarDiameters}"
-                                SelectedItem="{Binding Setting.BotAdditionBarDiameter2}"
+                                SelectedItem="{Binding Layer2Bot}"
                                 Width="50">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
@@ -333,39 +301,6 @@
                             </ComboBox>
                         </StackPanel>
 
-                        <TextBlock Text="{DynamicResource BEAMREBAR_QUICKBEAMREBARVIEW_TEXTBLOCK7}"></TextBlock>
-
-                        <StackPanel Orientation="Horizontal"
-                                    VerticalAlignment="Top">
-                            <CheckBox x:Name="CbAdditionalBottomBar1"
-                                      Width="30"
-                                      IsChecked="{Binding CheckFillBot}"
-                                      VerticalAlignment="Top" />
-                            <ComboBox
-                                IsEnabled="{Binding ElementName=CbAdditionalBottomBar1,Path=IsChecked}"
-                                ItemsSource="{Binding FillNumbers}"
-                                SelectedItem="{Binding FillBotNumber}"
-                                Width="50">
-                            </ComboBox>
-                            <TextBlock>
-                                <Run Text="x" />
-                            </TextBlock>
-
-                            <ComboBox
-                                IsEnabled="{Binding ElementName=CbAdditionalBottomBar1,Path=IsChecked}"
-                                ItemsSource="{Binding RebarData.BarDiameters}"
-                                Width="50"
-                                SelectedItem="{Binding FillBot}">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                Text="{Binding Converter={StaticResource RevitDiameterToStringConverter}}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </StackPanel>

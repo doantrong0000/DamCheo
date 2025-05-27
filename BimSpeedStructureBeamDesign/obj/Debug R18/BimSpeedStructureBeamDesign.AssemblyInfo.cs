@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BimSpeedStructureBeamDesign")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug R18")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2018.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2018+63f8579586433bfecaf5ecdf3d6be13e165891e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2018+38c84e31ee3ba2c8b276372b21c70e8d952a6ad8")]
 [assembly: System.Reflection.AssemblyProductAttribute("BimSpeedStructureBeamDesign")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BimSpeedStructureBeamDesign")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2018.0.0.0")]

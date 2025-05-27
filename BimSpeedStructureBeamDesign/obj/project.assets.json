@@ -988,7 +988,7 @@
       ]
     },
     "BimSpeedLicense/2024.0.0": {
-      "sha512": "u+govLSmxvOdkCxSXxTNqoBCBtL4XXRFnzEcUpewR4MDR5MZcEfRjNTeD/AJ9o4qrS5hzPWyZYwuhf9J81WC3g==",
+      "sha512": "uWjVn+3eEpA8TEMPCJs6QKxj4sqe8FpQZ1OSldkH4ttoTJC87X0DkIPJD54YY/7zhhCVSj8gmPge+i0eBnkPAg==",
       "type": "package",
       "path": "bimspeedlicense/2024.0.0",
       "files": [
@@ -999,7 +999,7 @@
       ]
     },
     "BimSpeedUtils/2024.0.0": {
-      "sha512": "RoyvYur71dZUlAnHl4hdTCdAQzRkdueXR2U9fKKWfqOaEgvCSLsdK4WcmF1xVSZlUxw0eTFvnBj4CzuWtccNbA==",
+      "sha512": "/S16ies2iF6GR//A3pyO8XMHu05fzt+G4R6f08qWZKf3Sg7RpY1YkZh+90iS6SLhnplSpw+trwtEk7qlj7GXlQ==",
       "type": "package",
       "path": "bimspeedutils/2024.0.0",
       "files": [
@@ -2542,23 +2542,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hoang\\.nuget\\packages\\": {},
+    "C:\\Users\\bimspeed01\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "2024.0.0",
     "restore": {
-      "projectUniqueName": "D:\\2_Code_Trong\\DamCheo\\BimSpeedStructureBeamDesign\\BimSpeedStructureBeamDesign.csproj",
+      "projectUniqueName": "C:\\Users\\bimspeed01\\Documents\\Trong\\DamCheo\\BimSpeedStructureBeamDesign\\BimSpeedStructureBeamDesign.csproj",
       "projectName": "BimSpeedStructureBeamDesign",
-      "projectPath": "D:\\2_Code_Trong\\DamCheo\\BimSpeedStructureBeamDesign\\BimSpeedStructureBeamDesign.csproj",
-      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-      "outputPath": "D:\\2_Code_Trong\\DamCheo\\BimSpeedStructureBeamDesign\\obj\\",
+      "projectPath": "C:\\Users\\bimspeed01\\Documents\\Trong\\DamCheo\\BimSpeedStructureBeamDesign\\BimSpeedStructureBeamDesign.csproj",
+      "packagesPath": "C:\\Users\\bimspeed01\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bimspeed01\\Documents\\Trong\\DamCheo\\BimSpeedStructureBeamDesign\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bimspeed01\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2566,7 +2566,7 @@
         "net48"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\nuget": {},
         "https://api.nuget.org/v3/index.json": {}
@@ -2586,7 +2586,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net48": {
@@ -2617,7 +2618,7 @@
             "version": "[1.0.2, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\2_Code_Trong\DamCheo\BimSpeedStructureBeamDesign\obj\Debug R24\
+C:\Users\bimspeed01\Documents\Trong\DamCheo\BimSpeedStructureBeamDesign\obj\Debug R24\
 BimSpeedStructureBeamDesign
 none
 false
@@ -12,9 +12,9 @@ TRACE;DEBUG;R24;Version2024;R20_OR_GREATER;R21_OR_GREATER;R22_OR_GREATER;R23_OR_
 
 11-1925084049
 
-491098135912
-1871980248194
+50-108886838
+187-375552862
 CurvedBeamRebar\Views\CurvedBeamView.xaml;Resources\ResourceString.en.xaml;Resources\ResourceString.jp.xaml;Resources\ResourceString.sp.xaml;Resources\ResourceString.vn.xaml;Utils\ResourceDicrectory\ButtonStyle2.xaml;Utils\ResourceDicrectory\CheckBoxStyle.xaml;Utils\ResourceDicrectory\GroupBoxStyle2.xaml;Utils\ResourceDicrectory\RadioButtonStyle2.xaml;Utils\ResourceDicrectory\Style.xaml;Utils\View\SheetFinderView.xaml;
 
-True
+False
 

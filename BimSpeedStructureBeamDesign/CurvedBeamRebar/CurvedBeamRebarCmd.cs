@@ -29,7 +29,6 @@ namespace BimSpeedStructureBeamDesign.CurvedBeamRebar
             try
             {
                beam = AC.Selection.PickObject(ObjectType.Element, new BeamSelectionFilter(), "Beams...").ToElement();
-
             }
             catch
             {

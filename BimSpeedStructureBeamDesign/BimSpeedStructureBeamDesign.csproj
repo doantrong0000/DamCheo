@@ -114,8 +114,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="CurvedBeamRebar\Views\Matcat.png" />
-		<None Remove="CurvedBeamRebar\Views\neothep.png" />
 		<None Remove="Resources\Icons\about.png" />
 		<None Remove="Resources\Icons\about16.png" />
 		<None Remove="Resources\Icons\auto.png" />
@@ -155,8 +153,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="CurvedBeamRebar\Views\Matcat.png" />
-		<Resource Include="CurvedBeamRebar\Views\neothep.png" />
+		<Resource Include="CurvedBeamRebar\Views\Matcat2.png" />
+		<Resource Include="CurvedBeamRebar\Views\neothep2.png" />
 		<Resource Include="Resources\Icons\about.png" />
 		<Resource Include="Resources\Icons\about16.png" />
 		<Resource Include="Resources\Icons\auto.png" />
